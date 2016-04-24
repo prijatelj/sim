@@ -15,12 +15,12 @@ public class Converse {
 	
 	void dialogue(){
 		Scanner input = new Scanner(System.in);
-		String prompt = new String();
-		prompt = (input.nextLine()).toLowerCase();
-		prompt = prep(prompt);
-		while (!farewell(prompt, input)){
+		String query = new String();
+		query = (input.nextLine()).toLowerCase();
+		query = prep(query);
+		while (!farewell(query, input)){
 			// process request
-			if (prompt.equals("-help")){
+			if (query.equals("-help")){
 				System.out.println("");
 			}
 			else{
@@ -28,63 +28,70 @@ public class Converse {
 				// respond
 				System.out.println(response);
 			}
-			
-			
-			prompt = (input.nextLine()).toLowerCase();
-			prompt = prep(prompt);
+			query = (input.nextLine()).toLowerCase();
+			query = prep(query);
 		}
 		
 	}
-	boolean farewell(String prompt, Scanner input){
-		if (prompt.contains("goodbye")){
-			System.out.println("Goodbye user!");
-			return true;
+	boolean farewell(String query, Scanner input){
+		if (query.equals("goodbye") || query.contains("farewell") || query.contains("see you later")
+				|| query.contains("see ya") || query.equals("cya") || query.equals("quit")){
+			System.out.println("Leaving so soon? [y/n]");
+			query = (input.nextLine()).toLowerCase();
+			if(query.equals("y") || query.contains("yes")){
+				System.out.println("Goodbye user!");
+				return true;
+			}
+			else{
+				System.out.println("Then we're going to need some more caffeine!");
+				return false;
+				}
 		}
 		else
 			return false;
 	}
 	// cuts out useless words such as articles, 
-	String prep(String prompt){
+	String prep(String query){
 		// articles, demonstratives, quantifiers
-		prompt = prompt.replaceAll("/\b($the)\b/i","");
-		prompt = prompt.replaceAll("/\b($a)\b/i", "");
-		prompt = prompt.replaceAll("/\b($an)\b/i", "");
-		prompt = prompt.replaceAll("/\b($one)\b/i", "");
-		prompt = prompt.replaceAll("/\b($some)\b/i", "");
-		prompt = prompt.replaceAll("/\b($few)\b/i", "");
-		prompt = prompt.replaceAll("/\b($many)\b/i", "");
-		prompt = prompt.replaceAll("/\b($all)\b/i", "");
-		prompt = prompt.replaceAll("/\b($enough)\b/i", "");
-		prompt = prompt.replaceAll("/\b($plenty)\b/i", "");
-		prompt = prompt.replaceAll("/\b($every)\b/i", "");
-		prompt = prompt.replaceAll("/\b($neither)\b/i", "");
-		prompt = prompt.replaceAll("/\b($either)\b/i", "");
-		prompt = prompt.replaceAll("/\b($each)\b/i", "");
-		prompt = prompt.replaceAll("/\b($such)\b/i", "");
-		prompt = prompt.replaceAll("/\b($what)\b/i", "");
-		prompt = prompt.replaceAll("/\b($rather)\b/i", "");
-		prompt = prompt.replaceAll("/\b($quite)\b/i", "");
-		prompt = prompt.replaceAll("/\b($other)\b/i", "");
-		prompt = prompt.replaceAll("/\b($another)\b/i", "");
+		query = query.replaceAll("/\b($the)\b/i","");
+		query = query.replaceAll("/\b($a)\b/i", "");
+		query = query.replaceAll("/\b($an)\b/i", "");
+		query = query.replaceAll("/\b($one)\b/i", "");
+		query = query.replaceAll("/\b($some)\b/i", "");
+		query = query.replaceAll("/\b($few)\b/i", "");
+		query = query.replaceAll("/\b($many)\b/i", "");
+		query = query.replaceAll("/\b($all)\b/i", "");
+		query = query.replaceAll("/\b($enough)\b/i", "");
+		query = query.replaceAll("/\b($plenty)\b/i", "");
+		query = query.replaceAll("/\b($every)\b/i", "");
+		query = query.replaceAll("/\b($neither)\b/i", "");
+		query = query.replaceAll("/\b($either)\b/i", "");
+		query = query.replaceAll("/\b($each)\b/i", "");
+		query = query.replaceAll("/\b($such)\b/i", "");
+		query = query.replaceAll("/\b($what)\b/i", "");
+		query = query.replaceAll("/\b($rather)\b/i", "");
+		query = query.replaceAll("/\b($quite)\b/i", "");
+		query = query.replaceAll("/\b($other)\b/i", "");
+		query = query.replaceAll("/\b($another)\b/i", "");
 		// pronouns
-		prompt = prompt.replaceAll("/\b($he)\b/i", "");
-		prompt = prompt.replaceAll("/\b($him)\b/i", "");
-		prompt = prompt.replaceAll("/\b($she)\b/i", "");
-		prompt = prompt.replaceAll("/\b($her)\b/i", "");
-		prompt = prompt.replaceAll("/\b($his)\b/i", "");
-		prompt = prompt.replaceAll("/\b($hers)\b/i", "");
-		prompt = prompt.replaceAll("/\b($it)\b/i", "");
-		prompt = prompt.replaceAll("/\b($its)\b/i", "");
-		prompt = prompt.replaceAll("/\b($ours)\b/i", "");
-		prompt = prompt.replaceAll("/\b($our)\b/i", "");
-		prompt = prompt.replaceAll("/\b($their)\b/i", "");
-		prompt = prompt.replaceAll("/\b($they)\b/i", "");
-		prompt = prompt.replaceAll("/\b($me)\b/i", "");
+		query = query.replaceAll("/\b($he)\b/i", "");
+		query = query.replaceAll("/\b($him)\b/i", "");
+		query = query.replaceAll("/\b($she)\b/i", "");
+		query = query.replaceAll("/\b($her)\b/i", "");
+		query = query.replaceAll("/\b($his)\b/i", "");
+		query = query.replaceAll("/\b($hers)\b/i", "");
+		query = query.replaceAll("/\b($it)\b/i", "");
+		query = query.replaceAll("/\b($its)\b/i", "");
+		query = query.replaceAll("/\b($ours)\b/i", "");
+		query = query.replaceAll("/\b($our)\b/i", "");
+		query = query.replaceAll("/\b($their)\b/i", "");
+		query = query.replaceAll("/\b($they)\b/i", "");
+		query = query.replaceAll("/\b($me)\b/i", "");
 		// 
-		prompt = prompt.replaceAll("/\b($about)\b/i", "");
-		prompt = prompt.replaceAll("/\b($is)\b/i", "");
-		prompt = prompt.replaceAll("/\b($are)\b/i", "");
-		prompt = prompt.replaceAll("/\b($of)\b/i", "");
-		return prompt;
+		query = query.replaceAll("/\b($about)\b/i", "");
+		query = query.replaceAll("/\b($is)\b/i", "");
+		query = query.replaceAll("/\b($are)\b/i", "");
+		query = query.replaceAll("/\b($of)\b/i", "");
+		return query;
 	}
 }
