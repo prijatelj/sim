@@ -1,0 +1,30 @@
+I don’t know why you believe a word I say.
+You can actually do a neural net with a spreadsheet. I have done it as a lark one time which is fun.
+You could try to figure out the theory, or you could just sit there and try what works best.
+My slides are really redundant because of my other classes. I’ll edit them when I get the chance.
+The nice thing this is a very hot topic, right? (about Natural Language Understanding)
+Natural Language Understanding is really a hot topic now a-days.
+We will discuss whether or not Google Translate has any understanding about the words or not.
+For most people the answers these days is ‘no’.
+When people say something there is meaning behind their utterance, and it is important to understand the meaning behind their words.
+When your spouse says, “I’m very thirsty,” that means “Grab me a glass of water”.
+Words themselves can be ambiguous and even purposely ambiguous.
+I shot the bear in my pajamas, how he got in my pajamas I will never know.
+It is helpful to know bears do not usually wear pajamas, but people do.
+This was a joke by ~Adam Graham~ and the joke was that the bear was the one in the pajamas. I am glad I was able to explain the joke to you.
+Do you know he difference between idiom, jargon, and slang?
+slang is new speak what the young folks say.
+“The rents”, what the young-uns say when they don’t want their parents to know what they mean. “Hook up” is meaningless. It has no particular meaning.
+Classic joke about a texan visiting Harvard.
+- wait I can’t tell you this can I?- *prompt user to input yes or no, or simply stop there*
+He is lost at Harvard
+Excuse, Can you tell me where the Library is at?
+Don’t you know you shouldn’t end a sentence with a preposition?
+Right. Then, can you tell me where the Library is at, asshole?Don’tUseThis
+It’s hard to recognize speech.
+It’s hard to wreck a nice peach.
+It’s hard to wreck a nice beach.
+Everyone Got that? Good.
+Oh Pepsi! That sounds good right now.
+Don’t you know that if it ends with a ‘y’ it is an adverb? Like “any”. . . “any”s not an adverb.
+C++ is a pun. Get it? c, plus plus . . . Maybe it depends on how you say it.

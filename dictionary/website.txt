@@ -1,0 +1,9 @@
+Dr. Donald Simon
+Associate Professor of Computer Science
+B.S., M.S., Carnegie-Mellon University
+Ph.D., The University of Texas
+
+A strong background in mathematics has led him to research in artificial intelligence resulting in the generation of computer proofs of high level number theory theorems. He possesses a quick wit and takes great pleasure in all types of food.
+
+Syllabi:
+COSC 215: Data Structures with Java
