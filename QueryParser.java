@@ -25,14 +25,10 @@ public class QueryParser {
 			values[i] = c - 'a';
 			if (!(values[i] >= 0 && values[i] < 26)) {
 				switch (c) {
-				case '?':
+				case '*':
 					values[i] = 26.0;
-				case '.':
-					values[i] = 27.0;
-				case '!':
-					values[i] = 28.0;
 				default:
-					values[i] = 29.0;
+					values[i] = 27.0;
 				}
 			}
 		}
