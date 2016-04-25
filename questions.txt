@@ -1,51 +1,68 @@
-Who are you?
-What are you?
-State your name.
-State what you are.
-What is your purpose?
-What do you do?
-Tell me a joke.
-Tell a joke.
-Know any jokes?
-Can you tell me a joke?
-What jokes do you know?
-What do you teach?
-
 What topics do you cover?
 What specific topics do you cover?
 What specific topics do you teach?
 What specific topics do you talk about?
 What specific topics do you know?
-
 What can you tell me about searching?
 What about A*?
 What about AStar?
-
-How does A Star work?
-How does A* work?
-
-Prove A* always chooses the most optimal choice.
-
-What are some searching algorithms?
-What are some informed searching algorithms?
-Tell me about a search algorithm.
 Tell me about an informed search algorithm.
-Tell me about graph separation.
-Tell me about the graph separation theorem.
-Prove graph separation theorem.
-
-What are the average run times for [algorithm]
-
+Tell me what an informed search is.
+How does Astar work?
+How does A* work?
+Prove A* always chooses the most optimal choice.
+What are some searching algorithms?
+What is General Tree search?
+How does General tree search work?
+How does generaltree search work?
+What is the general tree search algorithm?
+What are the average run times for General tree search?
+What are the average run times for general tree search algorithm?
+Tell me about a search algorithm.
+What is breadth-first search?
+What is breadth first search?
+How does Breadth-First search work?
+How does breadth first search work?
+What is the breadth first search algorithm?
+What are the average run times for breadth-first search?
+What are the average run times for Breadth First search algorithm?
+What is Uniform-cost search?
+What is Uniform cost search?
+How does Uniform-Cost search work?
+How does uniform cost search work?
+What is the Uniform Cost search algorithm?
+What are the average run times for Uniform-cost search?
+What are the average run times for uniform cost search algorithm?
+What is Depth-first search?
+What is Depth first search?
+How does Depth-first search work?
+How does Depth first search work?
+What is the Depth first search algorithm?
+What are the average run times for Depth-first search?
+What are the average run times for depth first search algorithm?
+What is Depth-limited search?
+What is Depth limited search?
+How does Depth-limited search work?
+How does Depth limited search work?
+What is the Depth limited search algorithm?
+What are the average run times for Depth-limited search?
+What are the average run times for depth limited search algorithm?
+What is Iterative deepening search?
+What is Iterative-deepening search?
+How does Iterative deepening search work?
+How does Iterative-deepening search work?
+What is the Iterative deepening search algorithm?
+What are the average run times for Iterative deepening search?
+What are the average run times for Iterative deepening search algorithm?
 What areas of AI are you implementing?
 What are you made of?
 What specific AI algorithms are used to create you?
-
+What is an informed search?
+How do informed searches work?
 What is a heuristic function?
-
-What are dominant heuristics?
+What is a heuristic?
 what is a relaxed problem?
 Tell me about pattern databases
-
 What is the schedule for the class?
 What if I have disabilities?
 What about late work?
@@ -55,82 +72,14 @@ Does this class have a professor?
 How can I contact the professor?
 How can I contact him?
 How does grading work in this class?
-
 What are the views on AI?
 How many approaches are there to AI?
 What approaches are there to AI?
 Tell me about cognitive modeling.
-Tell me about the logicist approach.
 Tell me about the simulation approach.
+Tell me about the logicist approach.
 tell me about the rational agents approach.
-
-What is the current state of artificial intelligence?
-What is state of the art AI?
 What is PEAS?
 what is peas?
-what is a task environment?
-What is an example of a task environment?
-what is a performance measure?
-what is an example of a performance?
-What is a sensor?
-What is an example of a sensor?
-what are the properties of a task environment?
-what makes up a task environment?
-
-What is intelligence?
-
-tell me about simple reflex agents.
-what is a simple reflex agent program?
-what is a model based reflex agent?
-what is a model-based reflex agent?
-what about a goal based agent?
-what is a utility-based agent?
-tell me about learning agents.
-What are the parts of a learning agent?
-
-Tell me about goal formation.
-What is goal formation?
-Give me an example of goal formation.
-What are characteristics of the problem for goal formation?
-Define a well-defined problem.
-
-What is a solution?
-What is the real-world problem???
-Give real world problem examples.
-
-What is the general tree search algorithm?
-What are redundant paths in tree search.
-
-What is a search graph.
-What is general graph search algorithm
-
-Give me an example of a well-defined problem.
-Give me an example of a real world problem.
-What is a search graph?
-What is a general graph search algorithm?
-What is the separation property?
-Provide a proof of the graph separation theorem.
-Tell me what an informed search is.
-
-What is the separation property?
-What is a node?
-What are the parts of a node?
-Tell me about Child-Node function.
-What is the frontier?
-What is an uninformed search?
-Tell me some uninformed search strategies.
-What is Breadth-First Search?
-How does Breadth-First Search work?
-Give me the breadth-first search algorithm.
-Give me the properties of Breadth-First Search.
-What is uniform-cost search?
-Give me the Uniform-Cost Search Algorithm.
-What are properties of the Uniform-Cost Search?
-tell me about Depth-First Search.
-Give me a depth-first search example.
-Give me the depth-first search properties.
-What is depth-limited search?
-Give me the Depth-Limited Search Algorithm.
-What is iterative deepening Depth-first search.
-What are Iterative deepening properties.
-What is Bidirectional search.
+what is intelligence?
+Are you intelligent?
