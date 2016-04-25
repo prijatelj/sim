@@ -4,18 +4,13 @@ State your name.
 State what you are.
 What is your purpose?
 What do you do?
-
 Tell me a joke.
 Tell a joke.
 Know any jokes?
 Can you tell me a joke?
 What jokes do you know?
-Do you have any humor?
-Are you always serious?
-
-Why do you lack speech recognition?
-
 What do you teach?
+
 What topics do you cover?
 What specific topics do you cover?
 What specific topics do you teach?
@@ -44,7 +39,6 @@ What are the average run times for [algorithm]
 What areas of AI are you implementing?
 What are you made of?
 What specific AI algorithms are used to create you?
-- to make you function?
 
 What is a heuristic function?
 

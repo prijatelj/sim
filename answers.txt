@@ -1,0 +1,48 @@
+I currently know about some introductory content on search algorithms in artificial intelligence.
+
+Tentative Schedule
+Date Topic(s) Readings
+1. 1/11 Introduction, Search Chap. 1-3
+1/18 MLK Day – No Class
+2. 1/25 Informed Search Chap. 4,5
+3. 2/1 CSP, Logical Agents Chap. 6,7
+4. 2/8 First-Order Logic Chap. 8
+5. 2/15 Automated Reasoning Chap. 9, Prover9 home page, Prover9 manual Prover9 examples, Prolog Manual
+6. 2/22 Mid-term; Planning Chap. 10, 11
+2/29 Spring Break: No class
+7. 3/7 Knowledge Representation Chap. 12
+8. 3/14 Uncertain Knowledge & Reasoning Chap. 13, 14
+9. 3/21 Learning from Examples Chap. 18
+3/28 Easter Break – No Class
+10. 3/30 Knowledge in Learning, Reinforcement Chap. 19, 21 (Wed.)
+11. 4/4 Natural Language Processing Chap. 22
+12. 4/11 More NLP Chap. 23
+13. 4/18 Perception Chap. 24
+14. 4/25 Project Presentations
+5/2 Final – 6:00 pm to 8:00 pm
+
+Students with documented disabilities are entitled to reasonable accommodations if needed. If you need accommodations, please contact the Office of Freshman Development and Special Student Services in 309 Duquesne University (412-397-6657) as soon as possible. Accommodations will not be granted retrospectively.
+
+A homework or program assignment will lose 5 points per day that it is late. Weekends are counted as one day. Homework assignments and programs may not be turned in after they are discussed in class. All programs and homework must be turned in by 4/26/16. Work turned in after that time will not be accepted.
+
+A project addressing a problem in artificial intelligence is required.
+The project should be the equivalent of three weeks of homework in terms of effort.
+The topic is of the student's own choosing, with the consent of the professor.
+The project should involve programming, mathematical analysis, and/or statistical analysis in a significant way. If the program contains code, source code must be included with the project. A write-up of 5-10 pages is also required. Examples of projects are: An expert system for tree identification, a spam filter, a chess program, a sudoku solver, a simple, domain specific question and answering system, or a neural net to solve a classification problem. The project could solve a problem in a new way, or could be an implementation of a known approach to a new problem.
+
+Dr. Simon is the professor of the class and here is his contact information: Office Hours: MWF 1:00 PM - 3:00 PM, M 5:00 PM - 6:00 PM, or by Appointment. E-mail: simond@duq.edu Home Page: www.mathcs.duq.edu/profs/simon.html Office / Phone: 416 College Hall / 396-6472
+
+Grading
+Assignments & Programs 40% Project 15% Mid-term 20% Final 30%. Assignments and programs are due at class time. Tests are in-class and closed book. Grading Scale: 100-90 = A, 89-80 = B, 79-70 = C, 69-60 = D, below 60 = F. Plus-minus grading will not be used. Honor Policy: Students in this class fall under the mandate of the University's academic integrity policy. Any student guilty of plagiarism will receive a grade of 'F' for the course and will be repor Work done in this course is to be by the individual, not a group. You may not share (copy, give, show) your homework with other students in the course Any code not your own that is included in your programs must be properly cited. This includes code from the book and that given by the professor. Submitted work must be your own work, although you may include code from the book (or book's website) and that given out by the instruction.
+If the code is not your own, it must be properly attributed.
+
+Four Philosophies of artificial intelligence: Thinking Humanly, Thinking Rationally, Acting Humanly, and Acting Rationally
+
+Thinking Humanly: Cognitive Modeling: Determine how humans think. Reproduce thought process in machines. Testable theories of how the mind works. Carbon-based vs. silicon-based processing. Examples: General Problem Solver (Newell & Simon), Neural Nets (McCulloch & Pitts), Transferring Consciousness (Moravec)
+
+Acting Humanly: Simulation: Program need not simulate human thought, but rather human behavior. Perform tasks that require human intelligence: Natural language, Reasoning, Planning, Learning, Knowledge representation, Vision. Turing Test (Turing, 1950), Loebner Prize
+
+Thinking Rationally: Logicist Approach: Logical, rigorous reasoning. Formal logic. Systematize all necessary knowledge. Inference is key. May out-perform humans.
+
+Acting Rationally: Rational Agent Approach: Operate autonomously: Perceive environment, React to stimuli, Create and pursue goals, Adapt to change. Achieve the “best” outcome according to some external measure. Similar skills to acting humanly. Internal mechanism may differ from humans. This is the course Book's approach.
+

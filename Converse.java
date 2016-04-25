@@ -45,7 +45,8 @@ public class Converse {
 			}
 			// cut off at min length to get rid of pointless input.
 			else if( (query.length() < minLength || !query.contains(" ") ) && !query.equals("joke") ){
-				System.out.println("I didn't understand you. \n Do you need some help?");
+				//System.out.println("I didn't understand you. \n Do you need some help?");
+				System.out.println("It looks to me like you could use some help.");
 				help();
 			}
 			else{	//	 response by machine.
@@ -299,7 +300,7 @@ public class Converse {
 			return true;
 		}
 		else if (query.contains("who sim") || query.contains("what sim")){	// what is Sim?
-			System.out.println("I am Sim. I simulate of characters based on my "
+			System.out.println("I am Sim. I simulate characters based on my "
 					+ "personality files. I am currently simulating a professor's assistant "
 					+ "for the COSC 410 Artificial Intelligence course offered at Duquesne University. "
 					+ "\nMy design, although currently very rudimentary, implements neural nets, natural "
@@ -363,7 +364,7 @@ public class Converse {
 			case 4:	
 			default:
 				System.out.println("How about we talk about something that is hip?\n");
-				TimeUnit.SECONDS.sleep(2);
+				TimeUnit.SECONDS.sleep(1);
 				System.out.println("Natural Language Understanding is really a hot topic now-a-days. When people say something "
 						+ "there is usually meaning behind their utterance, and it is important to understand them."); 
 				TimeUnit.SECONDS.sleep(3);
