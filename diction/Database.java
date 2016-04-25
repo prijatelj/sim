@@ -167,5 +167,20 @@ public class Database{
 		}
 		return null;
 	}
+	protected void print(int i, int j){	//	print all the strings in the subcat
+		if (i < data.size()) {
+			if (j < data.get(i).size())
+				for (int x = 0; x < data.get(i).get(j).size(); x++){
+					System.out.println(data.get(i).get(j).get(x));
+				}
+			else {
+				System.out.println("Error: DNE: index for sub-category " + j + " does not exist under category "+ i +".");
+				System.exit(0);
+			}
+		} else {
+			System.out.println("Error: DNE: index for category " + i + " does not exist.");
+			System.exit(0);
+		}
+	}
 }
 

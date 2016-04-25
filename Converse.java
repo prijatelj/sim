@@ -284,8 +284,8 @@ public class Converse {
 				break;
 			case 2:
 				System.out.println("No jokes but a little factoid for you:\n"
-						+ "“The rents”, is what the young-uns say when they don’t want their parents to "
-						+ "know what they mean. Also, “Hook up” is meaningless. It has no particular meaning.\n"
+						+ "\"The rents\", is what the young-uns say when they don’t want their parents to "
+						+ "know what they mean. Also, \"Hook up\" is meaningless. It has no particular meaning.\n"
 						+ "Uh-oh. I lied. You got two factoids!"
 						+ "\nI lied earlier because 'a' is singular and that means only one "
 						+ "factoid.\n . . . Dang. I did it again.\n");
@@ -305,6 +305,10 @@ public class Converse {
 						+ "When your spouse says, \"I’m very thirsty,\" that means \"Grab me a glass of water\".\n");
 				break;
 			}
+			return true;
+		}
+		else if (query.contains("where") || query.contains("why")){
+			System.out.println("I'm sorry, but I only can answer questions of the form of \"what\" and \"how\".");
 			return true;
 		}
 		// need to handle any "why"s, "who"s, and "where"s stating sim only handles what, how, and some examples.
