@@ -9,35 +9,65 @@ package sim;
 import java.util.Scanner;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
+import simplenet.*;
+
+//TODO Neat idea - write an internal print method that delays the output based on the size of the output string. 
+//Might make it seem like sim is "thinking," making conversation flow more naturally. Post-output delays would 
+//let the reader catch up with sim after each line
 
 public class Converse {
 	static final int minLength = 6 ;
-	public static void dialogue() throws InterruptedException{
+	/**
+	 * Active conversational method. Takes a trained deep Perceptron net and 
+	 * a map of Perceptron categories to strings as arguments, and then 
+	 * interprets and responds to user input via the console.  
+	 * 
+	 * @param net trained deep Perceptron net for handling strings not explicitly mapped
+	 * @param map map for interpreting Perceptron output
+	 * @throws InterruptedException Delays are implemented for more natural speech flow
+	 */
+	public static void dialogue(MLPerceptron net, HashMap<Integer, String> map) throws InterruptedException{
 		Random rand = new Random();
 		Scanner input = new Scanner(System.in);
 		String query = new String();
-		System.out.println((char)27 + "[36m"+ "Hello there, I am Sim. Please submit your query about artificial "
+		System.out.println((char)27 + "[36m"+ "Hello there! Please submit your query about artificial "
 				+ "intelligence."
+				+ "\n I'm still learning, but so far I already know a good bit about search algorithms."
 				+ "\n I can answer questions in the form of \"what\" and \"how\", and I can provide some examples."
 				+ (char)27 + "[0m");
 		query = (input.nextLine()).toLowerCase();
 		System.out.print((char)27 + "[36m" );
-		while (!farewell(query, input)){	//	loops until stated to quit by user
+		while (!farewell(query, input)){	//	loops until user attempts to quit
 			// process request
 			if (query.equals("--help") || query.equals("-help") || query.equals("help")){
 				help();
 			}
 			// cut off at min length to get rid of pointless input.
 			else if( (query.length() < minLength || !query.contains(" ") ) && !query.equals("joke") ){
-				System.out.println("\nYou look like you could use some help.");
+				System.out.println("I didn't understand you. \n Do you need some help?");
 				help();
 			}
 			else{	//	 response by machine.
 				query = nlp(query);// natural language processor
-				if (!quickResponse(query, rand)){		//	if quick respone, then will respond, otherwise neeural net.
-					String response = "*response*";
-					// respond
+				if (!quickResponse(query, rand)){		//	try to QuickRespond.
+					//Use our neural net to find a response
+					//NOTE - query parser currently configured to parse 3-grams, up to 60 characters worth
+					double[] netresp = net.test(QueryParser.parse(query, 60, 3));
+					int cat = 0;
+					double max = 0.0;
+					for(int i = 0; i < netresp.length; i++){
+						if(netresp[i] > max){
+							max = netresp[i];
+							cat = i;
+						}
+					}
+					String response = map.get(cat);
+					// QuickRespond didn't work, so respond after a quick delay
+					//TODO see the note at the top of the class for a better idea regarding natural responses
+					TimeUnit.SECONDS.sleep(1);
 					System.out.println("processed query: " + query + " | "  + response);
+					TimeUnit.SECONDS.sleep(1);
 				}
 			}
 			System.out.println("Another query?" + (char)27 + "[0m");
@@ -337,10 +367,10 @@ public class Converse {
 			return true;
 		}
 		else if (query.contains("where") || query.contains("why")){
-			System.out.println("I'm sorry, but I only can answer questions of the form of \"what\" and \"how\".");
+			System.out.println("I'm sorry, but for now I only can answer questions of the form of \"what\" and \"how\".");
 			return true;
 		}
-		// need to handle any "why"s, "who"s, and "where"s stating sim only handles what, how, and some examples.
+		//TODO need to handle any "why"s, "who"s, and "where"s stating sim only handles what, how, and some examples.
 		return false;
 	}
 }
