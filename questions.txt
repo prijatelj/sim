@@ -3,6 +3,7 @@ What are you?
 State your name.
 State what you are.
 What is your purpose?
+What do you do?
 
 Tell me a joke.
 Tell a joke.
@@ -14,7 +15,6 @@ Are you always serious?
 
 Why do you lack speech recognition?
 
-What does one learn in Dr. Simon’s AI class?
 What do you teach?
 What topics do you cover?
 What specific topics do you cover?
@@ -29,7 +29,7 @@ What about AStar?
 How does A Star work?
 How does A* work?
 
-Prove A* always choses the most optimal choice.
+Prove A* always chooses the most optimal choice.
 
 What are some searching algorithms?
 What are some informed searching algorithms?
