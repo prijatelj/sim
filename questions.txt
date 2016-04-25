@@ -62,7 +62,7 @@ What approaches are there to AI?
 Tell me about cognitive modeling.
 Tell me about the logicist approach.
 Tell me about the simulation approach.
-tell me about the rational ages approach.
+tell me about the rational agents approach.
 
 What is the current state of artificial intelligence?
 What is state of the art AI?
