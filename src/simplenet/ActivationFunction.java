@@ -1,9 +1,9 @@
 package simplenet;
 
-import java.util.PriorityQueue;
+import java.util.HashMap;
 
-public abstract class ActivationFunction<T> {
+public abstract class ActivationFunction<T extends Comparable<T>> {
 
-	public abstract T activate(PriorityQueue<WNode<T>> input);
+	public abstract T getRate(HashMap<Node<T>,Double> input, T bias);
 	
 }

@@ -7,7 +7,7 @@ package simplenet;
  * @param <T> type parameter of the node contained in this weighted node
  */
 
-class WNode<T> implements Comparable<WNode<T>> {
+class WNode<T extends Comparable <T>> implements Comparable<WNode<T>> {
 
 	private Node<T> node;
 	private Double weight;

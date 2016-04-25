@@ -2,7 +2,7 @@ package simplenet;
 
 import java.util.HashMap;
 
-public class Identity extends ActivationFunction<Double> {
+public class Sigmoid extends ActivationFunction<Double> {
 
 	@Override
 	public Double getRate(HashMap<Node<Double>,Double> input, Double bias) {
@@ -10,7 +10,7 @@ public class Identity extends ActivationFunction<Double> {
 		for(Node<Double> node : input.keySet()){
 			level += input.get(node)*node.getState();
 		}
-		return level;
+		return 1/(2+Math.expm1(level));
 	}
 
 }

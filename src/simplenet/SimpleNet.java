@@ -1,12 +1,15 @@
 package simplenet;
 
+
 /**
  * Simple, versatile, fixed-size array-backed neural net implementation with
  * modular construction. 
  * @author Tim
  */
 
-public class SimpleNet<T,N extends Node<T>> {
+public class SimpleNet<T extends Comparable <T>,N extends Node<T>> {
+	
+	N[][] network; 
 
 	/**
 	 * Core constructor accepting an array of integers to define layer sizes, starting 
@@ -14,5 +17,12 @@ public class SimpleNet<T,N extends Node<T>> {
 	 * terminal layer). 
 	 */
 	
+	public SimpleNet(){
+		
+	}
+	
+	public SimpleNet(int[] layers){
+		
+	}
 	
 }
