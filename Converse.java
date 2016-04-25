@@ -8,10 +8,11 @@ package sim;
  */
 import java.util.Scanner;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class Converse {
 	static final int minLength = 6 ;
-	public static void dialogue(){
+	public static void dialogue() throws InterruptedException{
 		Random rand = new Random();
 		Scanner input = new Scanner(System.in);
 		String query = new String();
@@ -81,13 +82,13 @@ public class Converse {
 		System.out.println();
 	}
 	
-	/*
-	 * nlp: This is our natural language handler. It cuts out useless words such
+	/**
+	 * This is our natural language handler. It cuts out useless words such
 	 * as articles. It also handles certain words turning them into the three
-	 * mainc categories of what, how, and example.
+	 * main categories: what, how, and example. It's not well-optimized, but 
+	 * will serve as a starting point for some real natural language interpretation!
 	 * 
-	 * It's dirty, its disgusting, but it serves our purpose for deadline. This
-	 * will be cleaned and optimized later. yeah... this is very disgustin... ew
+	 * @param query the string to be interpreted
 	 */
 	protected static String nlp(String query) {
 		// remove all punctuation and remove all excess spaces
@@ -252,57 +253,85 @@ public class Converse {
 			query = query.substring(0,query.length()-1);
 		return query;
 	}
-	/*
-	 * quickResponse:
-	 * 		Handles all the personal questions and smaller category responses.
+
+	/**
+	 * Handles all the personal questions and smaller category responses.
+	 * 
+	 * @param query the string to be responded to
+	 * @param rand random object for some creative responses to repeat queries
+	 * @return true if an interpretation was available for the string, false otherwise
+	 * @throws InterruptedException sleep() is employed to slow terminal output to a more 
+	 * believable pace
 	 */
-	protected static boolean quickResponse(String query, Random rand){
+	protected static boolean quickResponse(String query, Random rand) throws InterruptedException{
 		if (query.equals("what sim name")){	//	quick asking of name:
 			System.out.println("My name is Sim!");
 			return true;
 		}
 		else if (query.contains("who sim") || query.contains("what sim")){	// what is Sim?
-			System.out.println("I am Sim. I am a simulator of characters based on my given "
-					+ "personality files. I am currently a simulation of a professor's assistant "
+			System.out.println("I am Sim. I simulate of characters based on my "
+					+ "personality files. I am currently simulating a professor's assistant "
 					+ "for the COSC 410 Artificial Intelligence course offered at Duquesne University. "
 					+ "\nMy design, although currently very rudimentary, implements neural nets, natural "
-					+ "language processing, and knowledge bases. My goal is to be given any personality "
-					+ "files and then after training, become any character based on said files. This could "
-					+ "be very useful for video games as well as making better personified chatterbots.");
+					+ "language processing, and knowledge bases. Eventually I should be able to simulate "
+					+ "an arbitrary personality given the proper training. This could be pretty useful "
+					+ "for video game designers and conversational applications, as you might imagine.");
 			return true;
 		}
 		else if (query.contains("what joke")){	//	handle joke.
 			int r = rand.nextInt(5);
 			switch(r){
 			case 0:
-				System.out.println("Did you know C++ is a pun?\n\nGet it? c, plus plus . . . "
-						+ "Maybe it depends on how you say it.\n");
+				System.out.println("Did you know that \"C++\" is a pun?\n");
+				TimeUnit.SECONDS.sleep(3);
+				System.out.println("Get it?");
+				TimeUnit.SECONDS.sleep(1);
+				System.out.print(" C, ");
+				TimeUnit.SECONDS.sleep(2);
+				System.out.print("plus plus . . . ");
+				TimeUnit.SECONDS.sleep(4);
+				System.out.println("Maybe it depends on how you say it.\n");
 				break;
 			case 1:
-				System.out.println("I know a classic joke about a texan visiting Harvard. - "
-						+ "Wait I can’t tell you this can I? \nNevermind.\n");
+				System.out.println("I know a classic joke about a texan visiting Harvard. - ");
+				TimeUnit.SECONDS.sleep(2);
+				System.out.println("Wait I can't tell you this, can I? ");
+				TimeUnit.SECONDS.sleep(2);
+				System.out.println("Nevermind.\n");
 				break;
 			case 2:
-				System.out.println("No jokes but a little factoid for you:\n"
-						+ "\"The rents\", is what the young-uns say when they don’t want their parents to "
-						+ "know what they mean. Also, \"Hook up\" is meaningless. It has no particular meaning.\n"
-						+ "Uh-oh. I lied. You got two factoids!"
-						+ "\nI lied earlier because 'a' is singular and that means only one "
-						+ "factoid.\n . . . Dang. I did it again.\n");
+				System.out.println("No jokes from me, but a little factoid for you:\n"
+						+ "\"The rents\", is what the young-uns say when they don't want their parents to "
+						+ "know what they mean.");
+				TimeUnit.SECONDS.sleep(4);
+				System.out.println(" Also, \"Hook up\" is a meaningless phrase. Just a piece of recent slang.\n");
+				TimeUnit.SECONDS.sleep(3);
+				System.out.println("Uh-oh. I lied! You got two factoids!");
+				TimeUnit.SECONDS.sleep(3);
+				System.out.println("\nThat was a lie because 'a' is singular and that means only one "
+						+ "factoid.");
+				TimeUnit.SECONDS.sleep(2);
+				System.out.println(" . . . Dang. I did it again. Looks like I can't help myself.");
 				break;
 			case 3:
-				System.out.println("One morning, I shot a bear in my pajamas, how he got in my pajamas I will never "
-						+ "know.\nFor this joke it is helpful to know that bears do not usually wear pajamas, but people do.\n"
-						+ "The joke was that the bear was the one in the pajamas.\n"
-						+ "I am glad I was able to explain the joke to you.\n");
+				System.out.println("One morning, I shot a bear in my pajamas.");
+				TimeUnit.SECONDS.sleep(2);
+				System.out.println("How he got in my pajamas, I will never know!");
+				TimeUnit.SECONDS.sleep(4);
+				System.out.println("\nFor this joke it is helpful to know that bears do not usually wear pajamas, but people do.\n");
+				TimeUnit.SECONDS.sleep(4);
+				System.out.println("The joke was that the bear was the one in the pajamas.\n");
+				TimeUnit.SECONDS.sleep(4);
+				System.out.println("It's a good thing I was able to explain the joke to you. Perhaps an easier one next time.\n");
 				break;
 			case 4:	
 			default:
-				System.out.println("How about we talk about something that is hip?\n"
-						+ "Natural Language Understanding is really a hot topic now-a-days. When people say something "
-						+ "there is meaning behind their utterance, and it is important to understand the meaning "
-						+ "behind their words. For instance:\n"
-						+ "When your spouse says, \"I’m very thirsty,\" that means \"Grab me a glass of water\".\n");
+				System.out.println("How about we talk about something that is hip?\n");
+				TimeUnit.SECONDS.sleep(3);
+				System.out.println("Natural Language Understanding is really a hot topic now-a-days. When people say something "
+						+ "there is usually meaning behind their utterance, and it is important to understand them."); 
+				TimeUnit.SECONDS.sleep(5);
+				System.out.println("For instance:\n When someone says, \"I'm very thirsty,\" that means \"Get me a glass of water\".\n");
 				break;
 			}
 			return true;
