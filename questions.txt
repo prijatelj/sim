@@ -5,7 +5,6 @@ State what you are.
 What is your purpose?
 
 Tell me a joke.
-Tell use a joke.
 Tell a joke.
 Know any jokes?
 Can you tell me a joke?
@@ -14,18 +13,6 @@ Do you have any humor?
 Are you always serious?
 
 Why do you lack speech recognition?
-
-- at this point the question input starts to follow a visible pattern -
-
-What [thing] do you know?
-what [thing] do you teach?
-what [thing] do you
-what can you tell me about [thing]?
-Tell me about [thing].
-what makes this [thing] (the way it s.)
-How does this [thing] work.
-
-
 
 What does one learn in Dr. Simon’s AI class?
 What do you teach?
