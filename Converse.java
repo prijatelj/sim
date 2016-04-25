@@ -326,22 +326,28 @@ public class Converse {
 				System.out.println("I know a classic joke about a texan visiting Harvard. - ");
 				TimeUnit.SECONDS.sleep(2);
 				System.out.println("Wait I can't tell you this, can I? ");
-				TimeUnit.SECONDS.sleep(2);
+				TimeUnit.SECONDS.sleep(1);
 				System.out.println("Nevermind.\n");
 				break;
 			case 2:
 				System.out.println("No jokes from me, but a little factoid for you:\n"
 						+ "\"The rents\", is what the young-uns say when they don't want their parents to "
 						+ "know what they mean.");
-				TimeUnit.SECONDS.sleep(4);
-				System.out.println(" Also, \"Hook up\" is a meaningless phrase. Just a piece of recent slang.\n");
 				TimeUnit.SECONDS.sleep(3);
+				System.out.println(" Also, \"Hook up\" is a meaningless phrase. Just a piece of recent slang.\n");
+				TimeUnit.SECONDS.sleep(1);
 				System.out.println("Uh-oh. I lied! You got two factoids!");
 				TimeUnit.SECONDS.sleep(3);
 				System.out.println("\nThat was a lie because 'a' is singular and that means only one "
 						+ "factoid.");
-				TimeUnit.SECONDS.sleep(2);
-				System.out.println(" . . . Dang. I did it again. Looks like I can't help myself.");
+				TimeUnit.SECONDS.sleep(1);
+				System.out.print(". ");
+				TimeUnit.SECONDS.sleep(1);
+				System.out.print(". ");
+				TimeUnit.SECONDS.sleep(1);
+				System.out.print(". ");
+				TimeUnit.SECONDS.sleep(1);
+				System.out.println("Dang. I did it again. Looks like I can't help myself.");
 				break;
 			case 3:
 				System.out.println("One morning, I shot a bear in my pajamas.");
@@ -351,17 +357,17 @@ public class Converse {
 				System.out.println("\nFor this joke it is helpful to know that bears do not usually wear pajamas, but people do.\n");
 				TimeUnit.SECONDS.sleep(4);
 				System.out.println("The joke was that the bear was the one in the pajamas.\n");
-				TimeUnit.SECONDS.sleep(4);
+				TimeUnit.SECONDS.sleep(3);
 				System.out.println("It's a good thing I was able to explain the joke to you. Perhaps an easier one next time.\n");
 				break;
 			case 4:	
 			default:
 				System.out.println("How about we talk about something that is hip?\n");
-				TimeUnit.SECONDS.sleep(3);
+				TimeUnit.SECONDS.sleep(2);
 				System.out.println("Natural Language Understanding is really a hot topic now-a-days. When people say something "
 						+ "there is usually meaning behind their utterance, and it is important to understand them."); 
-				TimeUnit.SECONDS.sleep(5);
-				System.out.println("For instance:\n When someone says, \"I'm very thirsty,\" that means \"Get me a glass of water\".\n");
+				TimeUnit.SECONDS.sleep(3);
+				System.out.println("For instance:\n When your spouse says, \"I'm very thirsty,\" that means \"Get me a glass of water\".\n");
 				break;
 			}
 			return true;
