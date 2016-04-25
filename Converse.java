@@ -7,7 +7,6 @@ package sim;
  * Uniquely identify the string.
  */
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Converse {
 	static final int minLength = 6 ;
@@ -16,23 +15,23 @@ public class Converse {
 		String query = new String();
 		System.out.println("Hello there, I am Sim. Please submit your query about AI.");
 		query = (input.nextLine()).toLowerCase();
-		query = nlp(query);
 		while (!farewell(query, input)){	//	loops until stated to quit by user
 			// process request
-			if (query.equals("--help") || query.equals("-help") || query.equals("help"))
+			if (query.equals("--help") || query.equals("-help") || query.equals("help")){
 				help();
+			}
 			else if(query.length() < minLength){	//	input is too short to be useful.
-				System.out.println("\nYou look like you need some help.");
+				System.out.println("\nYou look like you could use some help.");
 				help();
 			}
 			else{	//	 response by machine.
+				query = nlp(query);// nlp that please.
 				String response = "*response*";
 				// respond
 				System.out.println( "processed query: " + query + " | "  + response);
 			}
 			System.out.println("Another query?");
 			query = (input.nextLine()).toLowerCase();
-			query = nlp(query);
 		}
 	}
 	protected static boolean farewell(String query, Scanner input){
@@ -71,20 +70,21 @@ public class Converse {
 			System.out.print("*");
 		System.out.println();
 	}
-	/* nlp:
-	 * 	This is our natural language handler. It cuts out useless words such as articles.
-	 * It also handles certain words turning them into the three mainc categories of what,
-	 * how, and example.
+	
+	/*
+	 * nlp: This is our natural language handler. It cuts out useless words such
+	 * as articles. It also handles certain words turning them into the three
+	 * mainc categories of what, how, and example.
 	 * 
-	 * 		It's dirty, its disgusting, but it serves our purpose for deadline. This will
-	 * be cleaned and optimized later.
+	 * It's dirty, its disgusting, but it serves our purpose for deadline. This
+	 * will be cleaned and optimized later.
 	 */
-	protected static String nlp(String query){		
-		//remove all punctuation and remove all excess spaces
-		query = query.replaceAll("\\s{2,}"," ");
-		query = query.replaceAll("[.!?:;,'><]+","");
+	protected static String nlp(String query) {
+		// remove all punctuation and remove all excess spaces
+		query = query.replaceAll("\\s{2,}", " ");
+		query = query.replaceAll("[.!?:;,'><]+", "");
 		// articles, demonstratives, quantifiers\
-		query = query.replaceAll("\\b(the)+\\b","");
+		query = query.replaceAll("\\b(the)+\\b", "");
 		query = query.replaceAll("\\b( a )\\b", " ");
 		query = query.replaceAll("\\b(an)\\b", "");
 		query = query.replaceAll("\\b(one)\\b", "");
@@ -103,7 +103,8 @@ public class Converse {
 		query = query.replaceAll("\\b(quite)\\b", "");
 		query = query.replaceAll("\\b(other)\\b", "");
 		query = query.replaceAll("\\b(another)\\b", "");
-		// pronouns (keep you and your because then it means "tell me about sim")
+		// pronouns (keep you and your because then it means "tell me about
+		// sim")
 		query = query.replaceAll("\\b(he)\\b", "");
 		query = query.replaceAll("\\b(him)\\b", "");
 		query = query.replaceAll("\\b(she)\\b", "");
@@ -144,22 +145,25 @@ public class Converse {
 		query = query.replaceAll("\\b(there)\\b", "");
 		query = query.replaceAll("\\b(to)\\b", "");
 
-		// Handle the main key word alternatives and turn them into main key word:
-		//	"provide" to "example", "tell" to "what" if appropriate.
-		query = query.replaceAll("\\b(prove)\\b", "example");	//	all proofs will be stored in example
+		// Handle the main key word alternatives and turn them into main key
+		// word:
+		// "provide" to "example", "tell" to "what" if appropriate.
+		query = query.replaceAll("\\b(prove)\\b", "example"); // all proofs
+																// will be
+																// stored in
+																// example
 		query = query.replaceAll("\\b(proof)\\b", "example");
-		
-		//give, show, etc... need handled correctly
-		if (!query.contains("example")){
-			if (query.contains("how")){
+
+		// give, show, etc... need handled correctly
+		if (!query.contains("example")) {
+			if (query.contains("how")) {
 				query = query.replaceAll("\\b(show)\\b", "");
 				query = query.replaceAll("\\b(give)\\b", "");
 				query = query.replaceAll("\\b(deliever)\\b", "");
 				query = query.replaceAll("\\b(present)\\b", "");
 				query = query.replaceAll("\\b(produce)\\b", "");
 				query = query.replaceAll("\\b(explanation)\\b", "");
-			}
-			else{
+			} else {
 				query = query.replaceAll("\\b(show)\\b", "what");
 				query = query.replaceAll("\\b(give)\\b", "what");
 				query = query.replaceAll("\\b(deliever)\\b", "what");
@@ -167,8 +171,7 @@ public class Converse {
 				query = query.replaceAll("\\b(produce)\\b", "what");
 				query = query.replaceAll("\\b(explanation)\\b", "what");
 			}
-		}
-		else {
+		} else {
 			query = query.replaceAll("\\b(give)\\b", "");
 			query = query.replaceAll("\\b(deliever)\\b", "");
 			query = query.replaceAll("\\b(present)\\b", "");
@@ -176,37 +179,39 @@ public class Converse {
 			query = query.replaceAll("\\b(produce)\\b", "");
 			query = query.replaceAll("\\b(explanation)\\b", "");
 		}
-		if (query.contains("what") || query.contains("how")){
-			query = query.replaceAll("\\b(tell)\\b","");
-			query = query.replaceAll("\\b(define)\\b","");
-			query = query.replaceAll("\\b(definition)\\b","");
-			query = query.replaceAll("\\b(state)\\b","");
-			query = query.replaceAll("\\b(provide)\\b","");
+		if (query.contains("what") || query.contains("how")) {
+			query = query.replaceAll("\\b(tell)\\b", "");
+			query = query.replaceAll("\\b(define)\\b", "");
+			query = query.replaceAll("\\b(definition)\\b", "");
+			query = query.replaceAll("\\b(state)\\b", "");
+			query = query.replaceAll("\\b(provide)\\b", "");
 			query = query.replaceAll("\\b(explanation)\\b", "");
-			if (query.contains("example")){	//	example has precedence over what and how
-				query = query.replaceAll("\\b(what)\\b","");
-				query = query.replaceAll("\\b(how)\\b","");
+			if (query.contains("example")) { // example has precedence over
+												// what and how
+				query = query.replaceAll("\\b(what)\\b", "");
+				query = query.replaceAll("\\b(how)\\b", "");
 			}
-		}// this could be problematic because some tells could be hows. tell about = what
-		else{
-			query = query.replaceAll("\\b(tell)\\b","what");
-			query = query.replaceAll("\\b(define)\\b","what");
-			query = query.replaceAll("\\b(state)\\b","what");
-			query = query.replaceAll("\\b(definition)\\b","what");
-			query = query.replaceAll("\\b(provide)\\b","example");
+		} // this could be problematic because some tells could be hows.
+			// tell about = what
+		else {
+			query = query.replaceAll("\\b(tell)\\b", "what");
+			query = query.replaceAll("\\b(define)\\b", "what");
+			query = query.replaceAll("\\b(state)\\b", "what");
+			query = query.replaceAll("\\b(definition)\\b", "what");
+			query = query.replaceAll("\\b(provide)\\b", "example");
 			query = query.replaceAll("\\b(explanation)\\b", "example");
 		}
-		// if we are lacking any what, how, or example, then add simply "what"
-		if(!(query.contains("what") || query.contains("how") || query.contains("example"))){
+		// if we are lacking any what, how, or example, then add simply
+		// "what"
+		if (!(query.contains("what") || query.contains("how") || query.contains("example"))) {
 			query = "what ".concat(query);
-		}
-		else{
+		} else {
 			// get rid of multiples after all the modification
 			query = query.replaceAll("(?!^)\\b(what)\\b", "");
 			query = query.replaceAll("(?!^)\\b(example)\\b", "");
 			query = query.replaceAll("(?!^)\\b(how)\\b", "");
 		}
-		query = query.replaceAll("\\s{2,}"," ");
+		query = query.replaceAll("\\s{2,}", " ");
 		return query;
 	}
 }
