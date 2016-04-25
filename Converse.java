@@ -54,7 +54,7 @@ public class Converse {
 				if (!quickResponse(query, rand)){		//	try to QuickRespond.
 					//Use our neural net to find a response
 					//NOTE - query parser currently configured to parse 3-grams, up to 60 characters worth
-					double[] netresp = net.test(QueryParser.parse(query, 60, 3));
+					double[] netresp = net.test(QueryParser.parse(query, 60, 5));
 					int cat = 0;
 					double max = 0.0;
 					for(int i = 0; i < netresp.length; i++){
@@ -67,7 +67,8 @@ public class Converse {
 					// QuickRespond didn't work, so respond after a quick delay
 					//TODO see the note at the top of the class for a better idea regarding natural responses
 					TimeUnit.SECONDS.sleep(1);
-					System.out.println("processed query: " + query + " | "  + response);
+					//System.out.println("processed query: " + query + " | "  + response);
+					System.out.println(response);
 					TimeUnit.SECONDS.sleep(1);
 				}
 			}
