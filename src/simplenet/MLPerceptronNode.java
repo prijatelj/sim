@@ -5,6 +5,8 @@ import java.util.HashMap;
 
 public class MLPerceptronNode extends Node<Double> {
 
+	private double delta = 0.0;
+	
 	public MLPerceptronNode(ActivationFunction<Double> act){
 		nextLayer = new ArrayList<Node<Double>>();
 		prevLayer = new ArrayList<Node<Double>>();
@@ -15,7 +17,15 @@ public class MLPerceptronNode extends Node<Double> {
 	}
 	
 	public MLPerceptronNode(){
-		this(new Tanh());
+		this(new Sigmoid());
+	}
+	
+	public void setDelta(double delta){
+		this.delta = delta;
+	}
+	
+	public double getDelta(){
+		return delta;
 	}
 	
 }

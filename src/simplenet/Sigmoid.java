@@ -10,7 +10,7 @@ public class Sigmoid extends ActivationFunction<Double> {
 		for(Node<Double> node : input.keySet()){
 			level += input.get(node)*node.getState();
 		}
-		return 1/(2+Math.expm1(level));
+		return 1/(2+Math.expm1(-level));
 	}
 
 }

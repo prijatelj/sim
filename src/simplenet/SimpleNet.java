@@ -25,4 +25,6 @@ public class SimpleNet<T extends Comparable <T>,N extends Node<T>> {
 		
 	}
 	
+	//TODO move initialization methods to simplenet, then override in extant children
+	
 }
