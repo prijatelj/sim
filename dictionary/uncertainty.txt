@@ -1,0 +1,342 @@
+Why Uncertainty?
+Consider the following problem:
+You want to get to the airport in time to catch your flight.
+How much time before your scheduled departure time should you leave?
+90 minutes?
+
+Can a rational agent know that if it leaves 90 minutes before the scheduled departure time it will make the flight (logical certainty)?
+Why Uncertainty?
+Consider the following problem:
+You want to get to the airport in time to catch your flight.
+How much time before your scheduled departure time should you leave?
+90 minutes?
+
+Can a rational agent know that if it leaves 90 minutes before the scheduled departure time it will make the flight (logical certainty)? No.
+Another Problem
+You have a toothache.
+You go to the dentist.
+Do you have a cavity?
+In other words, does Toothache ? Cavity?
+Another Problem
+You have a toothache.
+You go to the dentist.
+Do you have a cavity?
+In other words, does Toothache ? Cavity? No.
+Uncertainty
+How do you know you'll make your flight?
+You don't for certain – may depend on many factors:
+ Traffic
+ Weather
+ Mechanical Breakdown
+ Flight Delays
+
+A rational agent may need to deal with uncertainty in a formal way.
+Uncertainty (cont'd)
+How do you know if you have a cavity?
+A toothache may be one piece of evidence.
+There may be other evidence – the dentist's probe catches on your tooth.
+There may be causes other than a cavity that could cause a toothache – gum disease, cold, infection.
+
+Three Sources of Uncertainty
+Laziness – difficult to enumerate all possibilities – List every cause, every effect, and create exceptionless rules that link them all together.
+Theoretical ignorance – There may not be a complete theory for the domain.
+Practical ignorance – May have a theory, but may not have all the facts necessary for a particular case.
+Degree of Belief
+Given a certain state of knowledge, a rational agent may not be certain of a fact, but rather have a degree of belief in that fact.
+For example, you either have a cavity or not, but without the knowledge of whether or not you have a cavity, all the available evidence may lead you to believe that you do.  
+You may rank your degree of belief numerically, say a number between 0 and 1.
+Probability is a way of summarizing the uncertainty that comes from laziness and ignorance.
+Utility
+Given uncertainty, how does a rational agent choose what action to take?
+Suppose the agent knows the probability (likelihood) of success for each possible action. How does that affect the agent's choice?
+Should the agent take the action most likely to succeed (say in the airport example)?
+Utility
+Given uncertainty, how does a rational agent choose what action to take?
+Suppose the agent knows the probability (likelihood) of success for each possible action. How does that affect the agent's choice?
+Should the agent take the action most likely to succeed (say in the airport example)?
+No. The agent would arrive a day before the scheduled departure time in order to insure maximal likelihood of making the flight.
+Utility (cont'd)
+A rational agent must consider the utility of the state - how important is it - in making its decision.
+For example, if it's a business flight, the agent might raise the importance of making the flight, and leave earlier, vs. a vacation flight, where if the agent misses the place, it can take a later one.
+The agent needs a utility function to measure the usefulness, preferability, or importance, of different outcomes.
+ 
+Decision Theory
+A rational agent must balance the likelihood of an action succeeding and the utility of the outcome when making a decision.
+An agent is rational if and only if it chooses the action that yields the highest expected utility, averaged over all possible outcomes of the action. This is the principle of maximum expected utility (MEU.)
+Decision theory = probability theory + utility theory.
+Methods for Handling Uncertainty
+Default or non-monotonic logic:
+ Assume my car does not have a flat tire
+ Assume A25 works unless contradicted by evidence
+ Issues: What assumptions are reasonable? How to handle contradictions?
+
+Rules with fudge factors:
+ A25 |?0.3 get me there on time
+ Sprinkler |?0.99 WetGrass
+ WetGrass |?0.7 Rain
+ Issues: Problems with combination, e.g., Sprinkler causes Rain?
+Methods for Handling Uncertainty
+Probability:
+ Model agent's degree of belief:
+Given the available evidence: 	
+A25 will get me there on time with probability 0.04
+Probability
+Probabilistic assertions summarize effects of
+ Laziness: failure to enumerate exceptions, qualifications, etc.
+ Ignorance: lack of relevant facts, initial conditions, etc.
+
+Subjective probability:
+Probabilities relate propositions to agent's own state of knowledge
+		e.g., P(A25 | no reported accidents) = 0.06
+
+These are not assertions about the world.
+
+Probabilities of propositions change with new evidence:
+		e.g., P(A25 | no reported accidents, 5 a.m.) = 0.15.
+Syntax
+Basic element: random variable
+Similar to propositional logic: possible worlds defined by assignment of values to random variables.
+
+ Boolean random variables
+ e.g., Cavity (do I have a cavity?)
+ Discrete random variables
+ e.g., Weather is one of <sunny,rainy,cloudy,snow>
+ Numeric random variables
+Domain values must be exhaustive and mutually exclusive
+
+Elementary proposition are constructed by assigning a value to a random variable: e.g., Weather = sunny, Cavity = false (abbreviated as  ¬cavity)
+
+Complex propositions are formed from elementary propositions with standard logical connectives e.g., Weather = sunny ? Cavity = false
+Syntax
+Atomic event: A complete specification of the state of the world about which the agent is uncertain.
+e.g., if the world consists of only two Boolean variables Cavity and Toothache, then there are 4 distinct atomic events:
+Cavity = false ?Toothache = false
+Cavity = false ? Toothache = true
+Cavity = true ? Toothache = false
+Cavity = true ? Toothache = true
+
+Atomic events are mutually exclusive and exhaustive.
+Axioms of probability
+For any propositions A, B
+0 = P(A) = 1
+P(true) = 1 and P(false) = 0
+P(A ? B) = P(A) + P(B) - P(A ? B)
+
+
+Prior probability
+Prior or unconditional probabilities of propositions
+e.g., P(Cavity = true) = 0.1 and P(Weather = sunny) = 0.72 correspond to a belief prior to arrival of any (new) evidence
+
+The probability distribution gives values for all possible assignments:
+P(Weather) = <0.72,0.1,0.08,0.1> (normalized, i.e., sums to 1.
+The joint probability distribution for a set of random variables gives the probability of every atomic event on those random variables
+P(Weather,Cavity) = a 4 × 2 matrix of values:
+
+
+
+
+
+
+Every question about a domain can be answered by the joint distribution.
+Conditional probability
+Conditional or posterior probabilities
+e.g., P(cavity | toothache) = 0.8
+i.e., given that toothache is all I know
+
+(Notation for conditional distributions:
+P(Cavity | Toothache) = 2-element vector of 2-element vectors)
+
+If we know more, e.g., cavity is also given, then we have
+P(cavity | toothache,cavity) = 1
+
+New evidence may be irrelevant, allowing simplification, e.g.,
+P(cavity | toothache, sunny) = P(cavity | toothache) = 0.8
+
+This kind of inference, sanctioned by domain knowledge, is crucial.
+
+Conditional probability
+Definition of conditional probability:
+P(a | b) = P(a ? b) / P(b) if  P(b) > 0
+
+The product rule gives an alternative formulation:
+P(a ? b) = P(a | b) P(b) = P(b | a) P(a)
+
+A general version holds for whole distributions, e.g.,
+P(Weather,Cavity) = P(Weather | Cavity) P(Cavity)
+(View this as a set of 4 × 2 equations, not matrix multiplication)
+
+
+Conditional probability (cont'd)
+
+The chain rule is derived by successive application of product rule:
+P(X1, …,Xn) = P(X1,...,Xn-1) P(Xn | X1,...,Xn-1)
+                 	= P(X1,...,Xn-2) P(Xn-1 | X1,...,Xn-2) P(Xn | X1,...,Xn-1)
+                  	= …
+                  	= pi= 1^n P(Xi | X1, … ,Xi-1)
+
+Inference by Enumeration
+Start with the joint probability distribution:
+
+
+
+
+
+For any proposition f, sum the atomic events where it is true: P(f) = S?:?¦f P(?)
+
+
+
+Inference by Enumeration
+Start with the joint probability distribution:
+
+
+
+
+
+For any proposition f, sum the atomic events where it is true: P(f) = S?:?¦f P(?)
+P(toothache) = 0.108 + 0.012 + 0.016 + 0.064 = 0.2
+
+
+
+
+
+Inference by Enumeration
+Start with the joint probability distribution:
+
+
+
+
+
+For any proposition f, sum the atomic events where it is true: P(f) = S?:?¦f P(?)
+P(toothache v cavity) = 0.108 + 0.012 + 0.016 + 0.064  + .072 + .008 = 0.28
+
+
+
+
+
+
+Inference by Enumeration
+Start with the joint probability distribution:
+
+
+
+
+
+We can also compute conditional probabilities:
+
+
+
+
+Normalization
+
+Denominator can be viewed as a normalization constant a
+
+P(Cavity | toothache) = a P(Cavity, toothache)
+= a [P(Cavity, toothache, catch) + P(Cavity,toothache,? catch)]
+= a [<0.108, 0.016> + <0.012, 0.064>]
+= a <0.12, 0.08> = <0.6, 0.4>
+
+General idea: compute distribution on query variable by fixing evidence variables and summing over hidden variables.
+
+
+Inference by enumeration, cont'd.
+Typically, we are interested in
+	the posterior joint distribution of the query variables Y
+	given specific values e for the evidence variables E
+
+Let the hidden variables be H = X - Y - E
+
+Then the required summation of joint entries is done by summing out the hidden variables:
+P(Y | E = e) = aP(Y,E = e) = aShP(Y,E= e, H = h)
+
+The terms in the summation are joint entries because Y, E and H together exhaust the set of random variables
+
+Obvious problems:
+Worst-case time complexity O(dn) where d is the largest arity
+Space complexity O(dn) to store the joint distribution
+How to find the numbers for O(dn) entries?
+
+
+
+Independence
+A and B are independent iff
+	P(A|B) = P(A)    or P(B|A) = P(B)     or P(A, B) = P(A) P(B)
+
+
+
+
+
+P(Toothache, Catch, Cavity, Weather)
+	= P(Toothache, Catch, Cavity) P(Weather)
+
+32 entries reduced to 12; for n independent biased coins, O(2n) ?O(n)
+
+Absolute independence powerful but rare
+
+Dentistry is a large field with hundreds of variables, none of which are independent. What to do?
+Conditional independence
+P(Toothache, Cavity, Catch) has 23 – 1 = 7 independent entries
+
+If I have a cavity, the probability that the probe catches in it doesn't depend on whether I have a toothache:
+(1) P(catch | toothache, cavity) = P(catch | cavity)
+
+The same independence holds if I haven't got a cavity:
+(2) P(catch | toothache,?cavity) = P(catch | ?cavity)
+
+Catch is conditionally independent of Toothache given Cavity:
+P(Catch | Toothache,Cavity) = P(Catch | Cavity)
+
+Equivalent statements:
+P(Toothache | Catch, Cavity) = P(Toothache | Cavity)
+P(Toothache, Catch | Cavity) = P(Toothache | Cavity) P(Catch | Cavity)
+
+
+
+
+
+
+
+
+Conditional independence contd.
+Write out full joint distribution using chain rule:
+	P(Toothache, Catch, Cavity)
+	= P(Toothache | Catch, Cavity) P(Catch, Cavity)
+	= P(Toothache | Catch, Cavity) P(Catch | Cavity) P(Cavity)
+	= P(Toothache | Cavity) P(Catch | Cavity) P(Cavity)
+	I.e., 2 + 2 + 1 = 5 independent numbers
+
+In most cases, the use of conditional independence reduces the size of the representation of the joint distribution from exponential in n to linear in n.
+
+Conditional independence is our most basic and robust form of knowledge about uncertain environments.
+
+Bayes' Rule
+Product rule P(a?b) = P(a | b) P(b) = P(b | a) P(a)
+	? Bayes' rule: P(a | b) = P(b | a) P(a) / P(b)
+
+or in distribution form
+		P(Y|X) = P(X|Y) P(Y) / P(X) = a P(X|Y) P(Y)
+
+Useful for assessing diagnostic probability from causal probability:
+P(Cause|Effect) = P(Effect|Cause) P(Cause) / P(Effect)
+
+e.g., let M be meningitis, S be stiff neck:
+P(m|s) = P(s|m) P(m) / P(s) = 0.8 × 0.0001 / 0.1 = 0.0008
+Note: posterior probability of meningitis still very small!
+Bayes' Rule and conditional independence
+P(Cavity | toothache ? catch)
+= aP(toothache ? catch | Cavity) P(Cavity)
+= aP(toothache | Cavity) P(catch | Cavity) P(Cavity)
+
+This is an example of a naïve Bayes model:
+P(Cause,Effect1, … ,Effectn) = P(Cause) piP(Effecti|Cause)
+
+
+
+
+
+Total number of parameters is linear in n.
+Summary
+Probability is a rigorous formalism for uncertain knowledge
+Joint probability distribution specifies probability of every atomic event
+Queries can be answered by summing over atomic events
+For nontrivial domains, we must find a way to reduce the joint size
+Independence and conditional independence provide the tools.

@@ -1,0 +1,248 @@
+Propositional Logic
+Propositional Logic may be used to represent facts, such as those needed for the knowledge base of Wumpus World, and also to manipulate those facts.
+We want to make deductions and derive new facts from an existing set of facts.
+In propositional logic, simple facts, or propositions, are the basic unit of knowledge:
+They are atomic (cannot be sub-divided.)
+
+Examples:
+Clinton is the President of the U.S.
+It is raining.
+The wumpus is dead.
+
+Propositional Symbols
+We use propositional symbols to represent propositions.
+We will use letters, possibly subscripted, as propositional symbols.
+These may also be called atomic sentences or logical variables.
+Examples: W1,3, a, b, P, Q.
+There are two logical constants: true and false.
+
+Logical Connectives
+To create more complex facts, or formulas, or well-formed formulas, we can combine propositions using logical (or Boolean) connectives:
+¬ Negation (not)
+? Conjunction (and)
+? Disjunction (or)
+? Implication (if then)
+? Double implication, or biconditional (iff)
+? Exclusive Or
+Negation is a unary operation, all others are binary.
+Propositional Calculus - Syntax
+Proposition symbols: P, Q, R, S, W1,3 (variables whose values are true or false)
+Truth symbols: true, false
+Well-formed formula (WFF): A proposition symbol, truth value, or (¬ formula), or (formula op formula) where op is one of ?, ?, ?, ?, ?.
+These are the only formulas.
+Propositional Calculus - Syntax
+Order of precedence:
+The operators have different levels of precedence with negation binding more tightly, and exclusive or least tightly (in the order given on a previous slide).
+We only use parentheses to change the normal order of precedence.
+Propositional Calculus - Semantics
+An interpretation or model assigns a truth value (T or F) to each propositional symbol in a formula.
+Formulas are evaluated recursively:
+A propositional symbol's value is given by the interpretation
+A truth symbol's value is T for true and F for false
+For a complex formula, first evaluate the operand(s) and then apply the operator according to its truth table.
+Truth Tables
+Logical Entailment
+We say that formula A logically (or semantically) entails formula B, or that formula B logically follows from formula A, if for every model in which A is true, B is also true.
+We denote logical entailment by:
+    A ? B.
+
+A set of formulas, S, logically entails a formula B, if for any model in which every formula in S is true, B is also true.
+
+
+Logical Equivalence
+
+Two formula, A and B, are logically equivalent, if they logically entail each other, i.e., in any model in which A is true, B is also true, and vice versa.
+We denote logical equivalence by: A º B
+
+Validity
+We say that a formula is valid, if it is true in every model. Such a formula is also called a tautology.
+We say that a formula is unsatisfiable, if it is false in every model.
+A formula that is true in some model is called satisfiable.
+
+Example: Wumpus World KB
+We can represent the immutable aspects of Wumpus World with propositional logic:
+ Px,y is true iff there is a pit in [x,y].
+ Wx,y is true iff there is a wumpus in [x,y], dead or alive.
+ Bx,y is true iff the agent perceives a breeze in [x,y].
+ Sx,y is true iff the agent perceives a stench in [x,y].
+
+Example: Wumpus World KB
+ There is no pit in [1,1]:
+R1: ¬ P1,1.
+ A square is breezy iff there is a pit in a neighboring square: Examples of this general condition:
+R2: B1,1?(P1,2 ? P2,1).
+R3: B2,1?(P1,1 ? P2,2 ? P3,1).
+ The Breeze percepts for the first two squares are:
+R4: ¬ B1,1.
+R5: B2,1.
+Inference
+Inference is the process of making deductions, i.e., deriving new formulas, from a given set of formulas.
+An inference procedure is an algorithm for deriving such a new formula.
+This new formula should be logically entailed from the set of formulas.
+
+In particular, we want to find out what deductions we can make from the KB, which is a set of formulas.
+
+Inference Procedures
+We will study four inference procedures:
+ Truth Table Enumeration
+ Natural Deduction
+ Effective Model Checking
+ Resolution
+Truth Tables
+One way to check if a new formula is entailed by the KB is to list all possible models (interpretations), check which ones make the KB true (satisfy the KB), and then verify that the formula is true in all those models.
+The list of all possible models is called a truth table.
+The size of a truth table is exponential in the number of unique variables (proposition symbols).
+Only those variables that occur in either the KB or the formula to be checked are relevant.
+Example
+Suppose that the KB consists of the two formulas, P ? Q and P v R. Does the KB logically entail the formula Q v R?
+
+Truth Table Algorithm
+One can easily write either a recursive or iterative procedure that generates all lines of the truth table, and checks whether or not one formula B is true in all the lines of the table in which A is true.
+
+A similar procedure can be used to check the validity of a formula.
+Natural Deduction
+Let us consider a simple proof. Suppose that we have three formulas in our KB:
+ If it is raining, my dog is wet.
+ If my dog is wet, there will be water on the floor.
+ There is no water on the floor.
+We should be able to conclude that it is not raining.
+Propositions
+We represent the (atomic) propositions using the following propositional symbols:
+
+P: It is raining.
+Q: My dog is wet.
+R: There is  water on the floor.
+ 
+Natural Deduction Proof
+In propositional form, this argument would look like:
+
+
+
+Natural Deduction
+Is there a formal (a systematic, unambiguous way) of deriving new facts?
+We could have a set of rules that are apply to formulas that can be used to create (derive) new formulas which follow the original ones.
+One such rule is Modus Ponens:
+
+
+Another Rule
+Another such rule is called Modus Tollens:
+
+
+
+
+We could use two applications of Modus Tollens to show that it is not raining.
+Conjunction Rules
+In fact, there are other rules, some very obvious, so not so obvious, that we use to derive new facts from old ones.  
+Three obvious ones deal with conjunction:
+
+ 
+
+
+                 
+
+Disjunction Rules
+Two simple rules deal with disjunction:
+
+
+
+
+
+and one not-so-simple rule deals with proof-by-cases, also involving disjunction.
+If you have P ? Q, you can proceed by cases.
+If you assume that P is true and you can show R.
+Alternatively, if you assume that Q is true and you can still prove R.
+Then R must be true in either case.
+
+Boxes
+In the previous slide, the bracketed box introduces an additional assumption which is at the top of the box.
+The scope of the assumption is within the box.
+After the box, the formula is no longer assumed to be true and may not be used.
+There may be additional formulas inside the box between the first and last lines.
+Also, boxes may be nested to introduce several assumptions.
+Implication Rules
+Two rules involve implication. The second is Modus Ponens:
+
+ 
+
+
+
+
+
+Other Rules
+Rule Names
+In general, for each operator there are two (sets of) rules:
+An introduction rule which introduces the operator:
+The operator appears in the conclusion, and
+An elimination rule which removes an operator:
+The operator appears in one of the hypotheses.
+
+The is one conjunction introduction rule, and two conjunction elimination rules, one disjunction elimination rule (proof by cases) and two disjunction introduction rules.
+Rules Names (cont'd)
+Implication elimination is the Modus Ponens rule and there is a corresponding implication introduction (assume that P is true, prove Q, and you have the implication P ? Q.  
+
+
+
+
+The other four rules are  negation introduction, negation elimination, contradiction elimination, and double negation elimination.
+Natural Deduction Rules
+In all, there are twelve rules (Modens Tollens can be derived from the other rules).
+These rules codify one approach that people take toward deduction (hence the name Natural Deduction).
+A natural deduction proof is a sequence of steps where each step is either:P
+A hypothesis (formula assumed to be true), or
+is derived from previous formulas by one of the rules.
+Simple Proof
+Here is a proof that if we have hypothesis P ? Q, and Q ? R, we can derive the formula P->R:
+
+
+
+
+
+
+Modus Tollens
+Modus Tollens is a derived rule, that is, any proof which uses Modus Tollens could be done by using the other rules instead. To see this, consider:
+1. P ? Q
+2. ¬Q
+3. P             Assume
+4. Q             ? Elim: 3,1
+5. false        ¬ Elim: 4, 2
+6. ¬P          ¬ Intro: 3-5   
+
+Derivability
+Since we have a system of natural deduction, we have a way to derive new facts from a set of given facts (hypotheses).
+We construct a proof which each line is either a hypothesis or derived from previous lines by a proof rule.
+The last line of the proof is the conclusion.
+If such a proof exists, we say that the conclusion C can be derived from the hypotheses H, H ? C (read “H derives C.”)
+Semantic Entailment
+We also have a way of relating a formula to a set of formulas which we assume to be true (the hypotheses).
+If every interpretation which makes the hypotheses true (satisfies the hypotheses), also makes the conclusion true, i.e., whenever the hypotheses are true, the conclusion is also true, we say the the hypotheses semantically entails the conclusion, H ? C.
+Tautologies and Contradictions
+A formula that is true under every interpretation is said to be valid and is also called a tautology.
+A formula that is false under every interpretation is call a contradiction and said to be unsatisfiable.
+A formula that is true under some interpretation is said to be satisfiable.
+
+Proof vs. Truth
+In short, we have two notions: Proof and Truth.
+We have facts that we can prove from the set of hypotheses (using the rules of natural deduction) and we have facts that we know are true given that the hypotheses are true (which can check by constructing the truth table).
+For the natural deduction method for proposition calculus, these two notions coincide.
+Soundness and Completeness
+If we can prove formula C from the set of hypotheses H, then H must also semantically entail C:
+In other words, if we can prove it, it must be true.
+This is known as soundness.
+
+If C is semantically entailed from H, then there is a proof of C from hypotheses H:
+In other words, if it is true, we can prove it.
+This is known as completeness.
+Are All Systems Sound and/or Complete?
+
+
+
+
+No. Consider a system with one rule:
+
+
+
+That is, you can prove anything. Such a system is complete (if it's true you can prove it because you can prove anything), but it is not sound (you can prove things that aren't true).
+To construct a system that is sound but not complete, delete one of the twelve rules of natural deduction.
+
+   
+ 
