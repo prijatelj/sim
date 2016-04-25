@@ -1,0 +1,246 @@
+Critiques of AI
+Chinese Room (Searle)
+Unformalizable Knowledge - Instinct (Dreyfus)
+Unthinking Machines (Chomsky)
+  Norvig's response to Chomsky
+Cheap Tricks (Levesque)
+Searle's Chinese Room Experiment
+Imagine a native English speaker who knows no Chinese locked in a room full of boxes of Chinese symbols (a data base) together with a book of instructions for manipulating the symbols (the program).
+Imagine that people outside the room send in other Chinese symbols which, unknown to the person in the room, are questions in Chinese (the input).
+And imagine that by following the instructions in the program the man in the room is able to pass out Chinese symbols which are correct answers to the questions (the output).
+The program enables the person in the room to pass the Turing Test for understanding Chinese but he does not understand a word of Chinese.
+
+John Searle in  ‘The Chinese Room’, in R.A. Wilson and F. Keil (eds.), The MIT Encyclopedia of the Cognitive Sciences, Cambridge, MA: MIT Press.
+Chinese Room Experiment (cont'd)
+The point of the argument is this: if the man in the room does not understand Chinese on the basis of implementing the appropriate program for understanding Chinese then neither does any other digital computer solely on that basis because no computer, qua computer, has anything the man does not have.
+Searle's Argument
+Programs implemented by computers are just syntactical:
+Computer operations are “formal” in that they respond only to the physical form of the strings of symbols, not to the meaning of the symbols.
+Minds have states with meaning, mental contents.:
+We associate meanings with the words or signs in language.
+We respond to signs because of their meaning, not just their physical appearance.
+
+“Syntax is not by itself sufficient for, nor constitutive of, semantics.”
+
+So although computers may be able to manipulate syntax to produce appropriate responses to natural language input, they do not understand the sentences they receive or output, for they cannot associate meanings with the words.
+1. Systems Reply
+Concede that the man in the room doesn't understand Chinese,
+Nevertheless running the program may create something that understands Chinese.
+The objection is to the inference from the claim that the man in the room does not understand Chinese to the conclusion that no understanding has been created.
+There might be understanding by a larger, or different, entity.
+
+The claim that he doesn't understand Chinese while running the room is conceded, but his claim that there is no understanding, and that computationalism is false, is denied.
+2. Variants that Understand
+Concede Searle's claim that just running a natural language processing program as described in the CR scenario does not create any understanding, whether by a human or a computer system.
+However, a variation on the computer system could understand:
+The variant might be a computer embedded in a robotic body, having interaction with the physical world via sensors and motors (“The Robot Reply”), or
+The variant  might be a system that simulated the detailed operation of an entire brain, neuron by neuron (“the Brain Simulator Reply”).
+3. The Intuition Reply
+Do not concede even the narrow point against AI.
+Instead, hold that the man in the original Chinese Room scenario might understand Chinese, despite Searle's denials, or that the scenario is impossible.
+Either our intuitions in such cases are unreliable or state that it all depends on what one means by “understand.”
+
+4. Other Minds Reply
+If it is not reasonable to attribute understanding on the basis of the behavior exhibited by the Chinese Room, then it would not be reasonable to attribute understanding to humans on the basis of similar behavioral evidence
+The objection is that we should be willing to attribute understanding in the Chinese Room on the basis of the overt behavior, just as we do with other humans (and some animals), and as we would do with extra-terrestrial Aliens (or burning bushes or angels) that spoke our language.
+5. Russell and Norvig's Reply
+ Stuart Russell and Peter Norvig observe that most AI researchers "don't care about the strong AI hypothesis—as long as the program works, they don't care whether you call it a simulation of intelligence or real intelligence."
+The primary mission of artificial intelligence research is only to create useful systems that act intelligently, and it does not matter if the intelligence is "merely" a simulation.
+Dreyfus: 4 Assumptions of AI Res.
+1. A biological assumption: On some level of operation usually supposed to be that of the neurons the brain processes information in discrete operations by way of some biological equivalent of on/off switches.
+
+2. A psychological assumption: The mind can be viewed as a device operating on bits of information according to formal rules.
+
+3. An epistemological assumption: All knowledge can be formalized, that is, that whatever can be understood can be expressed in terms of logical relations, more exactly in terms of Boolean functions, the logical calculus which governs the way the bits are related according to rules.
+
+4. An ontological assumption: since all information fed into digital computers must be in bits, the computer model of the mind presupposes that all relevant information about the world, everything essential to the production of intelligent behavior, must in principle be analyzable as a set of situation-free determinate elements.
+
+Biological Assumption
+On some level of operation usually supposed to be that of the neurons the brain processes information in discrete operations by way of some biological equivalent of on/off switches.
+
+“Thus the view that the brain as a general-purpose symbol-manipulating device operates like a digital computer is an empirical hypothesis which has had its day. No arguments as to the possibility of artificial intelligence can be drawn from current empirical evidence concerning the brain. In fact, the difference between the "strongly interactive" nature of brain organization and the noninteractive character of machine organization suggests that insofar as arguments from biology are relevant, the evidence is against the possibility of using digital computers to produce intelligence.”
+
+Hubert Dreyfuss in “What Computers Can't Do” (1972)
+Psychological Assumption
+The mind can be viewed as a device operating on bits of information according to formal rules.
+
+...[T]that the empirical results, riddled with unexplained exceptions, and unable to simulate higher-order processes such as zeroing in and essential/inessential discrimination, are only promising if viewed in terms of an a priori assumption that the mind must work like a heuristically programmed digital computer. But now we have seen that the only legitimate argument for the assumption that the mind functions like a computer turns on the actual or possible existence of such an intelligent machine...
+It is impossible to process an indifferent "input" without  distinguishing between relevant and irrelevant, significant and insignificant data...
+The only alternative way to cope with selectivity would be analogue processing, corresponding to the selectivity of our sense organs. But then  all processing would no longer be digital, and one would have reason to  wonder whether this analogue processing was only peripheral.
+Hubert Dreyfuss in “What Computers Can't Do” (1972)
+Epistemological Assumption
+All knowledge can be formalized, that is, that whatever can be understood can be expressed in terms of logical relations, more exactly in terms of Boolean functions, the logical calculus which governs the way the bits are related according to rules.
+
+To have a complete theory of what speakers are able to do, one must not  only have grammatical and semantic rules but further rules which would  enable a person or a machine to recognize the context in which the rules  must be applied. Thus there must be rules for recognizing the situation,  the intentions of the speakers, and so forth. But if the theory then  requires further rules in order to explain how these rules are applied, as  the pure intellectualist viewpoint would suggest, we are in an infinite  regress. Since we do manage to use language, this regress cannot be a  problem for human beings. If AI is to be possible, it must also not be  a problem for machines.
+
+Hubert Dreyfuss in “What Computers Can't Do” (1972)
+
+Ontological Assumption
+Since all information fed into digital computers must be in bits, the computer model of the mind presupposes that all relevant information about the world, everything essential to the production of intelligent behavior, must in principle be analyzable as a set of situation-free determinate elements.
+
+No sooner had this certainty finally been made fully explicit, however, than philosophers began to call it into question. Continental phenomenologists recognized it as the outcome of the philosophical tradition and tried to show its limitations. Merleau-Ponty calls the assumption that all that exists can be treated as a set of atomic facts, the préjugé du monde, "presumption of commonsense." Heidegger calls it rechnende Denken, "calculating thought," and views it as the goal of philosophy, inevitably culminating in technology. Thus, for Heidegger, technology, with its insistence on the "thoroughgoing calculability of objects," is the inevitable culmination of metaphysics, the exclusive concern with beings (objects) and the concomitant exclusion of Being (very roughly our sense of the human situation which determines what is to count as an object). In England, Wittgenstein less prophetically and more analytically recognized the impossibility of carrying through the ontological analysis proposed in his Tractatus and became his own severest critic.
+
+Noam Chomsky's: Statistical AI
+It's true there's been a lot of work on trying to apply statistical models to various linguistic problems I think there have been some successes, but a lot of failures.
+...
+On the other hand there's a lot work which tries to do sophisticated statistical analysis, you know Bayesian and so on and so forth, without any concern for the actual structure of language, As far as I'm aware that only achieves success in a very odd sense of success. There is a notion of success which has developed in computational cognitive science in recent years which I think is novel in the history of science. It interprets success as approximating unanalyzed data. So for example if your were say to study bee communication this way, instead of doing the complex experiments that bee scientists do, you know like having fly to an island to see if they leave an odor trail and this sort of thing, if you simply did extensive videotaping of bees swarming, and you did you know a lot of statistical analysis of it, you would get a pretty good prediction for what bees are likely to do next time they swarm, actually you'd get a better prediction than bee scientists do, and they wouldn't care because they're not trying to do that. But and you can make it a better and better approximation by more video tapes and more statistics and so on.
+Norvig's Response
+...[E]ngineering success is not the goal or the measure of science. But I observe that science and engineering develop together, and that engineering success shows that something is working right, and so is evidence (but not proof) of a scientifically successful model...
+..[I]t can be difficult to make sense of a model containing billions of parameters. Certainly a human can't understand such a model by inspecting the values of each parameter individually. But one can gain insight by examing the properties of the model—where it succeeds and fails, how well it learns as a function of data, etc.
+
+Levesque: Trouble w/ Turing Test
+However, I do feel that the Turing Test has a serious problem: it relies too much on deception. A computer program passes the test iff it can fool an interrogator into thinking she is deal ing with a person not a computer.  Consider the interrogator asking questions like these:
+
+How tall are you?
+or
+Tell me about your parents.
+
+To pass the test, a program will either have to be evasive (and duck the question) or manufacture some sort of false identity (and be prepared to lie convincingly). In fact, evasiveness is seen quite clearly in the annual Loebner Competition, a restricted version of the Turing Test.
+
+
+Levesque: Trouble w/ Turing Test
+The “chatterbots” (as the computer entrants in the competition are called) rely heavily on wordplay, jokes, quotations, asides, emotional outbursts, points of order, and so on.  Everything, it would appear, except clear and direct answers to questions!  The ability to fool people is interesting, no doubt, but not really what is at issue here.
+
+We might well ask: is there a better behaviour test than having a free-form conversation?
+Levesque: Cheap Tricks
+We  want  multiple-choice  questions  that  people  can  answer easily.  But we also want to avoid as much as possible questions that can be answered using cheap tricks (aka heuristics).
+Consider for example, the question posed earlier:
+
+Could a crocodile run a steeplechase?
+Yes
+No
+
+The intent here is clear.   The question can be answered by thinking it through: a crocodile has short legs; the hedges in a steeplechase would be too tall for the crocodile to jump over; so no, a crocodile cannot run a steeplechase.
+Levesque: Good Questions
+Make the questions Google-proof. Access to a large corpus of English text data should not by itself be sufficient.
+
+Avoid  questions  with  common  patterns.  An  example is  “Is x older than y?” Perhaps  no  single  Google-accessible web page has the answer, but once we map the word “older” to “birth date,” the rest comes quickly.
+
+Watch for unintended bias. The word order, vocabulary, grammar and so on all need to be selected very carefully not to betray the desired answer.
+
+Winograd Schema Questions
+Our approach is best illustrated with an example question:
+
+Joan made sure to thank Susan for all the help she had given.  Who had given the help?
+Joan
+Susan
+
+A Winograd schema question is a binary-choice question with these properties:
+ Two  parties  are  mentioned  in  the  question  (both  are males, females, objects, or groups).
+ A pronoun is used to refer to one of them (“he,” “she,” “it,” or “they,” according to the parties).
+ The question is always the same: what is the referent of the pronoun?
+ Behind the scenes, there are two special words for the schema.  There is a slot in the schema that can be filled by either word.  The correct answer depends on which special word is chosen.
+
+Levesque: Suggestions
+We see this in the fads and fashions of AI research over the years:  first, automated theorem proving is going to solve it all; then, the methods appear too weak, and we favour expert systems; then the programs are not situated enough, and we move to behaviour-based robotics; then we come to believe that learning from big data is the answer; and on it goes.
+I think there is a lot to be gained by recognizing more fully what our own research does not address,  and being willing to admit that other AI approaches may be needed for dealing with it.  
+I believe this will help minimize the hype, put us in better standing with our colleagues, and allow progress in AI to proceed in a steadier fashion.
+
+Levesque: Prospects
+Finally, let me conclude with a question about the future:
+
+Will a computer ever pass the Turing Test (as first envisaged  by  Turing)  or  even  a  broad  Winograd Schema Test (without cheap tricks)?
+
+The answer to this question,  I believe,  lies in a quote from Alan  Kay: “The  best  way  to  predict  the  future  is  to  invent it.”
+I take this to mean that the question is not really for the pundits to debate.  
+The question, in the end, is really about us, how much perseverance and inventiveness we will bring to the task.  
+And I, for one, have the greatest confidence in what we can do when we set our minds to it.
+
+The Future
+What is the future of AI?
+What will technology look like 50 years in the future?
+The Past
+What did technology look like 50 years ago?
+1966: What We Watched
+1966: What We Wrote Papers On
+1966: How We Called Our Friends
+1966: Where We Got Daily News
+1966: Where We Did Our Research
+1966: What We Programmed
+IBM 360 vs. Smartphone
+IBM 360/75:
+$2.2 to $3.5 Million
+IBM 2075 processing unit
+Slightly under 1 MIPS (Optimized)
+1MB RAM (Max 8 MB)
+Weight: Around 30,000 Kg (Estimation, depends on peripherals)
+Including simple display but no battery
+
+Samsung Galaxy S6 Edge:
+Around $800 in 2015
+Quad-core 1.5 GHz Cortex-A53 & Quad-core 2.1 GHz Cortex-A57
+Around 50,000 MIPS (Estimation)
+3000 MB RAM
+Including display and battery
+Weight 0.132 Kg
+
+
+1969: The Internet
+1966: Batman
+1966: Batman with a Computer
+2066: The Future
+Conscious
+Sentient
+Emotional
+Self-Aware
+Subjective Experiencing
+Self-Explaining
+Self-Improving
+Neurotic?
+The Singularity
+Let an ultraintelligent machine be defined as a machine that can far surpass all the intellectual activities of man however clever. Since the design of machines is one of these intellectual activities, an ultraintelligent machine could design even better machines; there would them unquestionably be an “intelligence explosion,” and the intelligence of man would be left far behind. Thus the first ultraintelligent machines is the last invention that man need ever make, provided that the machine if docile enough to tell us how to keep it under control
+
+I.J. Good (1965)
+The Singularity
+
+..[W]e are on the edge of change comparable to the rise of human life on Earth. The precise cause of this change is the imminent creation by technology of entities with greater than human intelligence...
+I think it's fair to call this event a singularity ("the Singularity" for the purposes of this paper). It is a point where our old models must be discarded and a new reality rules.
+
+Vernor Vinge  (1993)
+Transhumanism
+An intellectual movement that aims to transform the human condition by developing and creating widely available sophisticated technologies to greatly enhance human intellectual, physical, and psychological capacities.
+Humans are merged with or replaced by robotic and biotech inventions.
+Social Aspects of AI
+What are the benefits/drawbacks of AI?
+Now?
+In the near future?
+In the distant future?
+
+Risks of AI
+ People might lose their jobs to automation.
+ People might have too much or too little leisure time.
+ People might lose their sense of being unique.
+ AI systems might be used toward undesirable ends.
+ The use of AI systems might result in a loss of accountability.
+ The success of AI might mean the end of the human race.
+Utopian Vision
+Star Trek:
+We talk to our computers
+Automatic language translation, including new languages
+Androids
+Replicators (3-D edible printing?)
+Computers free humans to do perform higher-order tasks: arts, poetry, space exploration
+Cure for baldness?
+Dystopian Vision
+Blade Runner (1982)
+CHAPPIE (2015)
+Colossus: The Forbin Project (1970)
+I, Robot (2004)
+The Matrix (1999)
+Metropolis (1927)
+Robocop (1987)
+The Terminator (1984)
+Transcendence (2014)
+X-Men: Days of Future Past (2014)
+AI: The Future
+Looking further ahead, there are no fundamental limits to what can be achieved: there is no physical law precluding particles from being organised in ways that perform even more advanced computations than the arrangements of particles in human brains. An explosive transition is possible, although it might play out differently from in the movie: as Irving Good realised in 1965, machines with superhuman intelligence could repeatedly improve their design even further, triggering what Vernor Vinge called a "singularity" and Johnny Depp's movie character calls "transcendence".
+One can imagine such technology outsmarting financial markets, out-inventing human researchers, out-manipulating human leaders, and developing weapons we cannot even understand. Whereas the short-term impact of AI depends on who controls it, the long-term impact depends on whether it can be controlled at all...
+All of us should ask ourselves what we can do now to improve the chances of reaping the benefits and avoiding the risks.
+
+Stephen Hawking (2014)
+Three Laws of Robotics
+ A robot may not injure a human being or, through inaction, allow a human being to come to harm.
+ A robot must obey the orders given it by human beings except where such orders would conflict with the First Law.
+ A robot must protect its own existence as long as such protection does not conflict with the First or Second Laws.[1]
+
+Isaac Asimov (1942)

@@ -1,0 +1,379 @@
+Learning
+Holy grail of AI. If we can build systems that learn, then we can begin with minimal information and high-level strategies and have systems better themselves. Avoid the “knowledge engineering bottleneck”  where everything must be hand-coded.
+Effective learning is very difficult.
+Goal
+  any change in a system that allows it to perform better the second time on repetition of the same task or on another task drawn from the same population (Herbert Simon, 1983).
+Machine Learning
+Symbol-based: A set of symbols represents the entities and relationships of a problem domain. Infer useful generalizations of concepts
+Connectivist approach: Knowledge is represented by patterns in a network of small, simple processing units. Recognize invariant patterns in data and represent them in the structure.
+Machine Learning (cont'd)
+Genetic algorithms: Population of candidate solutions which mutate, combine with one another, and are selected according to a fitness measure.
+Stochastic methods: New results are based on both the knower's expectation and the data (Bayes' rule). Often implemented using Markov processes.
+Types of Learning
+Supervised learning: Training examples both positive and negative, are classified by a teacher for use by the learning algorithm.
+Unsupervised learning: Training data not used
+Category formation, or conceptual clustering are examples.
+Reinforcement learning: Agent receives feedback from the environment.
+Categorization:  Symbol-based
+What is the data?
+What are the goals?
+How is knowledge represented?
+What is the concept space?
+What operations may be performed on concepts?
+How is the concept space searched (heurisitics)?
+Example – Arch recognition
+Problem: How to recognize the concept of 'arch' from building blocks (Winston).
+Symbolist
+Supervised learning
+Both positive and negative examples (near-misses)
+KR is by semantic networks
+Graph modification, node generalization
+Search is data-driven
+Example (cont'd)
+
+part(arch, x), part(arch, y), part(arch, z)
+type(x, brick), type(y, brick), type(z, brick)
+supports(x, z), supports(y,z)
+Example (cont'd)
+
+part(arch, x), part(arch, y), part(arch, z)
+type(x, brick), type(y, brick), type(z, pyramid)
+supports(x, z), supports(y,z)
+Example (cont'd)
+Background knowledge: isa(brick, polygon), isa(pyramid, polygon)
+Generalization:
+part(arch, x), part(arch, y), part(arch, z)
+type(x, brick), type(y, brick), type(z, polygon)
+supports(x, z), supports(y,z)
+Negative Example: Near Miss
+
+
+
+part(arch, x), part(arch, y), part(arch, z)
+type(x, brick), type(y, brick), type(z, brick)
+supports(x, z), supports(y,z)
+touches(x,y), touches(y,x)
+Generalization
+part(arch, x), part(arch, y), part(arch, z)
+type(x, brick), type(y, brick), type(z, brick)
+supports(x, z), supports(y,z)
+~touches(x,y), ~touches(y,x)
+Version Space Search (Mitchell)
+The problem is to find a general concept (or set of concepts) that includes the positive examples and excludes the negative ones.
+Symbolist
+Supervised learning
+Both positive and negative examples
+Predicate calculus
+Generalization operations
+Search is data driven
+Generalization Operators
+Replace constant with variable:
+	color(ball, red) -> color(X,red)
+Drop conjuncts:
+	shape(X,round)^size(X,small)^color(X,red) ->
+	shape(X,round)^color(X,red)
+Add disjunct:
+	shape(X,round)^color(X,red) ->
+	shape(X,round)^(color(X,red) v color(X,blue)
+Replace property by more general property:
+	color(X,red) -> color(X, primary_color)
+More General Concept
+Concept p is more general than concept q (or p covers q) if the set of elements that satisfy p is a superset of the set of elements that satisfy q. If p(x) and q(x) are descriptions that classify objects as positive examples, then
+    p(x) -> positive(x) |= q(x) -> positive(x).
+Version Space
+Version space is the set of all concept descriptions that that are consistent with the training examples. Mitchell created three algorithms for finding the version space: specific to general search, general to specific search, and the candidate elimination algorithm which works in both directions.
+Specific to General Search
+S = {first positive training instance};
+N = {}; // Set of all negative instances seen so far
+for each positive instance p {
+  for every s ? S, if s doesn't match p, replace s in S with its most specific generalization that matches p;
+  Delete from S all hypotheses more general than others in S;
+  Delete from S all hypotheses that match any n ? N;
+}
+For every negative instance n {
+  Delete all hypotheses from S that match n;
+  N = N u {n};
+}
+General to Specific Search
+G = {most general concept in the concept space};
+P = {}; // Set of all positive instances seen so far
+for each negative instance n {
+  for every g ? G, if g matches n, replace g in G with its most specific specialization that doesn't match n;
+  Delete from G all hypotheses more specific than others in G;
+  Delete from G all hypotheses that fail to match some p ? G;
+}
+For every positive instance g {
+  Delete all hypotheses from G that fail to match p;
+  P = P u {p};
+}
+Candidate Elimination Algorithm
+G = {most general concept in the concept space};
+S = {first positive training instance};
+for each new positive instance p {
+  Delete from G all hypotheses that fail to match p;
+  for every s ? S, if s doesn't match p, replace s in S with its most specific generalization that matches p;
+  Delete from S all hypotheses more general than others in S;
+  Delete from S all hypotheses that match any n ? N;
+}
+
+CAE (cont'd)
+for each negative instance n {
+  Delete from S all hypotheses that match n;
+  for every g ? G, if g matches n, replace g in G with its most specific specialization that doesn't match n;
+  Delete from G all hypotheses more specific than others in G;
+  Delete from G all hypotheses that fail to match some p ? G;
+}
+
+If G == S and both are singletons, the algorithm has found a single concept that is consistent with the data and the algorithm halts.
+If G and S become empty, there is no concept that satisfies the data.
+Candidate Elimination Algorithm
+G should always be a superset of S, and the concepts that lie between them satisfy the data.
+Incremental in nature – can process one training example at a time and form a usable, though incomplete, generalization.
+Is sensitive to noise and inconsistency in the set of training data.
+Essentially breadth-first search – heuristics can be used to trim the search space.
+LEX: Integrating Algebraic Exprs.
+LEX (Mitchell, et al.) integrates algebraic expressios by starting with an initial expression and then searching the space of expressions until it finds an equivalent expression with no integral signs. The system induces heuristics that improve its performance based on data obtained from its problem solver.
+LEX (cont'd)
+The operations are the rules of expression transformation:
+
+OP1: ?r f(x) dx -> r ? f(x) dx
+OP2: ?u dv -> uv - ? v du
+OP3: 1 * f(x) -> f(x)
+OP4: ? f1(x) + f2(x) dx -> ? f1(x) + ? f2(x)
+Heuristics
+Heuristics are of the form:
+  If the current problem state matches P then apply operator O with bindings B.
+Example:
+  If a problem state matches ? transcendental(x) dx,
+     then apply OP2 with bindings
+        u = x
+        dv = transcendental(x) dx
+
+Symbol Hierarchy
+There is a hierarchy of symbols and types: cos, trig, transcendental, etc.
+LEX Architecture
+LEX consists of four components:
+A generalizer that uses the Candidate Elimination Algorithm to find heuristics,
+A problem solver that produces traces of problem solutions,
+ A critic that produces positive and negative instances from the problem trace, and
+A problem generator that produces new candidate problems.
+How it works
+LEX maintains a version space for each operator. The version spaces represents the partially learned heuristic for that operator. The version space is update from the positive and negative examples generated by critic.
+The problem solver builds a tree of the space searched in solving an integration problem. It does best first search using the partial heuristics.
+How it works (cont'd)
+To decide if an example if positive or negative is an example of the credit assignment problem. After solving a problem, LEX finds the shortest path from the input to the solution. Those operators on the shortest path are classified as positive, and those that are not are classified as negative. Since the search is not admissible, the path may not actually be the shortest one.
+ID3 Decision Tree Algorithm
+A different approach to machine learning is to construct decision trees. At each node we test one property of the object and proceed to the proper child node, until reaching a leaf, at which point we can classify the object. We try to construct the best decision tree, the one with the fewest nodes (decisions).  Here there many be many categories, not just positive and negative.
+ID3
+Problem: Classify a set of instances based on their values of given properties.
+Symbolist
+Supervised learning
+Each instance is classified to a finite type
+KR is the tree and the operations are tree creation.
+All instances must be known in advance (non-iterative)
+Simple Tree Formation
+Choose a property.
+The property divides the set of examples up into subsets depending on their value of that property.
+Recursively create a sub-tree for each subset.
+Make all the sub-trees be children of the root which tests the given property.
+Caveat
+The tree that is formed is highly dependent on the order in which the properties are chosen. The idea is to chose the most informative property first, and use that to sub-divide the space of examples. This leads to the best (smallest) tree.
+Information Theory
+The amount of information in a message (Shannon) is a function of the probability of occurrence p of each possible message, namely -log2(p). Given a universe of messages M = {m1, m2, ..., mn} and a probability, p(mi), for the occurrence of each message, the expect information content of a message M is:
+  I[M] = (?n i=1 -p(mi) log2(p(mi))) = E[-log2p(mi)]
+Choosing the Property
+The information gain provided by choosing property A at the root of the tree is equal to the total information of the tree minus the amount of information needed to complete the classification of the tree. The amount of information needed to complete the tree is defined at the weighted average of the information in all its subtrees.
+
+Choosing the Property (cont'd)
+Assuming a set of training instances C, if we make property P with n values the root of the tree, then C will be partitioned into subsets {C1, C2, ..., Cn}. The expected value of the information needed to complete the tree is:
+E[P] = ?n i=1 |Ci| / |C| * I[Ci]
+and the expected information to complete the tree is:
+gain(P) = I[C] - E[P].
+
+Learning From Examples
+ Any component of a rational agent can be improved by learning from data.
+ The improvements and techniques used to make them depend on four factors:
+ Which component is to be improved.
+ What prior knowledge the agent already has.
+ What representation is used for the data and the component.
+ What feedback is available to learn from.
+Example: Wumpus World
+ Which component?
+ What prior knowledge?
+ What representation is used for the data? The component?
+ What feedback is available?
+
+Components to be Learned
+The components of an agent include:
+ Mapping from conditions of the current state to actions.
+ Means to infer relevant properties of the world from the percept sequence.
+ Information about how the world evolves and the results of possible actions.
+ Utility information – desirability of states
+ Desirability of actions
+ Goals
+Representation
+ Atomic
+ Factored
+Feature Vectors
+ Structured
+Propositional
+First-Order
+Semantic Networks
+Prior Knowledge
+Prior knowledge can have many forms:
+ World Model: automobile, computer, Wumpus world
+ Case Knowledge: medical cases, legal cases
+ Prior probability distribution
+ Set of theories
+ Partial semantic network
+ Concept set
+Types of Feedback
+Types of learning, depending on the available feedback are:
+ Unsupervised learning: find patterns in the input, clustering
+ Reinforcement learning: receive rewards and/or punishments
+ Supervised learning: Set of examples, positive and/or negative
+ Semi-supervised learning: A few labeled examples, and a large set of unlabeled ones. Stochastic sets.
+Ways to Learn
+ Inductive learning: Learn a general rule from a set of examples (may not logically follow.)
+ Analytic or deductive learning: Logically entail a new rule from a set of given rules. May not increase knowledge, but may speed up processing.
+Supervised Learning
+Suppose that there is a function, f, that generates output y, given input x. Further suppose that we have a set of examples of f:
+  (x1, y1), (x2, y2), …, (xN, yN)
+where each yj is f(xj). Discover a function h that approximates the true function f.
+
+x and y need not be numbers.
+The function h is a hypothesis.
+The set of examples is called the training set.
+Supervised Learning (con't)
+Learning is a search through the set of possible hypotheses for one that will perform well, even on new examples.
+To measure the accuracy of a hypothesis we try it on a test set of examples that are distinct from the training set.
+If f is stochastic, we may have to learn a conditional probability distribution.
+Classification vs. Regression
+If the output is a set of finite values, e.g., sunny, cloudy, or rainy, the learning problem is called classification.
+It there are only two values, it Is called Boolean or binary classification.
+If the output is a number, e.g., tomorrow's temperature, the learning problem is called regression.
+Complexity of Hypotheses
+Hypotheses may be simple or complex:
+ Polynomials – lower order are simpler
+ Boolean expressions – in CNF, fewer literals or variables
+ Semantic networks – graph size
+ Concept space – few, more abstract concepts
+
+We assume we have a measure of complexity.
+We prefer the simpler hypothesis among multiple consistent ones (Ockham's razor).
+Underfitting and Overfitting
+Hypotheses that are too simple may underfit the data – not be very accurate.
+Hypotheses that are too complex may overfit the data – may be very accurate for the training set, but may not generalize well to other data.
+Example
+Supervised Learning
+Supervised learning can be done by choosing the hypothesis h* that is most probable given the data:
+
+
+
+where H is the set of hypotheses.
+Note that there is a trade-off between the expressiveness of a hypothesis space and the complexity of finding a good hypothesis within that space.
+Complexity vs. Fit
+In general, there is a trade-off between complex hypotheses that fit the training data well and simpler hypothesis that may generalize better.
+How we represent hypothesis affects the space of hypothesis.
+Ideally, the space of hypothesis contains the true function. Such a learning problem is called realizable.
+Learning Decision Trees
+A decision tree represents a function that takes as input a vector of attribute values and returns a “decision” - a single output value.
+We begin with a Boolean classification problem.
+A decision tree reaches its decision by performing a sequence of tests. Each internal node in the tree corresponds to a test of the value of one of the input attributes. Each branch is labeled with one of the possible values of that attribute.
+Each leaf specifies a return value.
+Decision Tree: Example
+Expressiveness of Dec. Trees
+A path from the root to a leaf can be written out as a Boolean expression (a conjunction): attr1 = val1 ^ attr2 = val2 ^ … ^ attrn = valn.
+Any path that leads to a leaf with value true is a positive example.
+The disjunction of path expressions leading to true leaves represents all positive values of the function.
+Similarly, any Boolean formula (in DNF) can be expressed as a decision tree.
+
+Efficiency of Decision Trees
+The smaller the tree, the better.
+However, some problems require an exponentially large tree, e.g., the majority function where the inputs are Boolean variables and the function is true iff at least half of the variables are true.
+There are      distinct Boolean functions, so the space of decision trees is at least that large.
+Searching the space for good hypothesis may be difficult.
+Finding the optimal decision tree is NP-complete.
+ID3 Decision Tree Algorithm
+ID3 is an algorithm for constructing decision trees. It picks one attribute of the problem, divides the set of examples into subsets based on the value of that property, and recursively builds subtrees.
+ID3
+Problem: Classify a set of instances based on their values of given properties.
+Symbolist
+Supervised learning
+Each instance is classified to a finite type
+All instances must be known in advance (non-iterative)
+Simple Tree Formation
+Choose a property.
+The property divides the set of examples up into subsets depending on their value of that property.
+Recursively create a sub-tree for each subset.
+Make all the sub-trees be children of the root which tests the given property.
+Example
+Caveat
+The tree that is formed is highly dependent on the order in which the properties are chosen. The idea is to chose the most informative property first, and use that to sub-divide the space of examples. This leads to the best (smallest) tree.
+Information Theory
+Entropy is the measure of the uncertainty of a random variable.
+Acquisition of information corresponds to a reduction in entropy.
+Entropy is measured in 'bits.'
+A random variable with only one value has no uncertainty. Its entropy is 0.
+A flip of a fair coin is equally likely to be heads or tails. Its entropy is 1 bit.
+A fair four-sided die has 2 bits of entropy.
+Information Theory (cont'd)
+If a random variable V has values vk, each with probability P(vk), its entropy is defined as:
+H(V) = - ?k P(vk) log2 P(vk).
+We can define B(q) as the entropy of a Boolean random variable that is true with probability q:
+B(q) = - (q log2 q + (1-q) log2 (1-q)).
+
+Information Theory (cont'd)
+If a training set contains p positive examples and n negative examples, the entropy of the goal attribute of the set is:
+H(Goal) = B(p/(p+n)).
+An attribute A with d distinct values divides the training set E into subsets E1, E2, …, Ed. Each subset has pk positive examples and nk negative examples. If we choose that branch, we need an additional B(pk/(pk+nk)) bits of information to solve the problem.
+ 
+Information Theory (cont'd)
+A randomly chosen example from the training set has the kth value for the attribute with probability (pk+nk)/(p+n), so the expected entropy remaining after testing attribute A is:
+
+
+The information gain from the attribute test of A is:
+Gain(A) = B(p/(p+n)) – Remainder(A).
+
+Pick the attribute with the largest information gain.
+Decision Tree Pruning
+Overfitting in this representation occurs when attributes that don't really contribute much to the decision are included in the tree.
+One technique for making the tree smaller is decision tree pruning.
+We create the tree and then look for tests which appear to be irrelevant – they detect noise in the data.
+
+Decision Tree Pruning (cont'd)
+If a node splits the set into p positive and n negative examples, and p/(p+n) is about the same as for the entire set of examples, the information gain is close to 0.
+We can use a statistical significance test such as chi-squared to check for this (chi-squared pruning.)
+Irrelevant nodes are pruned from the tree.
+Evaluating a Hypothesis
+We want a hypothesis that fits the future data best.
+We employ the stationary assumption:
+There is a probability distribution over examples that remains stationary over time.
+Each example data point (before we see it) is a random variable whose observed value is sample from that distribution and is independent of previous examples.
+Such examples are independent and identically distributed (iid.)
+Evaluating a Hypothesis (cont'd)
+The error rate of a hypothesis is the proportion of mistakes it makes.
+To evaluate the error rate of a hypothesis, we test it on a set of unseen examples.
+One technique, called holdout cross-validation, is to split the available data into two sets: the training set and the test set.
+The training set is used to construct or train the agent – it is the input to the learning algorithm.
+The test set is used to find the error rate of the agent.
+
+k-fold Cross-Validation
+Split the data into k equal subsets.
+Perform k rounds of learning:
+  Each round leave out one subset of data (1/k of the total)
+  Train on the remaining examples
+  Test on the left-out set.
+Loss
+Some errors are less worse than other errors.
+Example: Spam filtering.
+It's better to have a false negative (let spam message slip through) than to have a false positive (reject a legitimate message.)
+Loss, L(x,y,y), is defined as the amount of utility lost by predicting h(x) = y, when the correct answer is f(x) = y.
+L(x,y,y) = Utility(result of using y given input x)
+               - Utility(result of using y given input x).
+Loss (cont'd)
+If L(y,y) is independent of x, we can drop the x.
+L(spam, nospam) = 1, L(nospam, spam) = 10.
+
+The learning agent can theoretically minimize its expecting utility by choosing the hypothesis that minimizes expect loss over all input-output pairs it will see.
+This requires a probability distribution over all examples in order to compute.

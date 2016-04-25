@@ -1,0 +1,247 @@
+Machine Learning: Connectionist
+McCulloch-Pitts Neuron
+Perceptrons
+Multilayer Networks
+Support Vector Machines
+Feedback Networks
+Hopfield Networks
+Uses
+Classification
+Pattern Recognition
+Memory Recall
+Prediction
+Optimization
+Noise Filtering
+Artificial Neuron
+
+
+
+Input signals, xi
+Weights, wi
+Activation level, Sigma wi xi
+Threshold function, f
+Neural Networks
+Network Topology
+Learning Algorithm
+Encoding Scheme
+McCulloch-Pitts Neuron
+Output is either +1 or -1.
+Computes weighted sum of inputs.
+If weighted sum >= 0 outputs +1, else -1.
+Can be combined into networks (multilayers)
+Not trained
+Computationally complete
+Example
+Perceptrons (Rosenblatt)
+Similar to McCulloch-Pitts neuron
+Single layer
+Hard limited threshold function, +1 if
+  weighted sum >=t, -1 otherwise
+Can use sign function if bias included
+Allows for supervised training (Perceptron Training Algorithm)
+Perceptron Training Algorithm
+Adjusts weights by using the difference between the actual output and the expected output in a a training example.
+Rule: ?wi  = c(di – Oi) xi
+c is the learning rate
+di is the expected output
+Oi is the computed output, sign(Swi xi).
+Example: Matlab nnd4pr function
+Perceptron (Cont'd)
+Simple training algorithm
+Not computationally complete
+Counter-example: XOR function
+Requires problem to be linearly separable
+Threshold function not continuous (needed for more sophisticated training algorithms)
+Generalized Delta Rule
+Conducive to finer granularity in the error measurement
+Form of gradient descent learning – consider the error surface, the map of the error vs. the weights. The rule takes a step closer to a local minima by following the gradient
+Uses the learning parameter, c
+Generalized Delta Rule (cont'd)
+The threshold function must be continuous. We use the a sigmoid function, f(x) = 1/(1 + e -?x), instead of a hard limit function. The sigmoid function is continuous, but approximates the hard limit function.
+The rule is: ? wi = c (di – Oi) f'(S wi xi) xk
+                                        = - c (di -Oi) * Oi * (1 – Oi) * xk
+Hill-climbing algorithm
+c determines how much the weight changes in a single step
+Multilayer Network
+Since a single-layer perceptron network is not computationally complete, we allow for a multilayer network where the output of each layer is the input for the next layer (except for the final layer, the output layer).
+ The first layer whose input comes from the external source is the input layer.
+ All other layers are called hidden layers.
+Training a ML Network
+How can we train a multilayer network?
+Given a training example, the output layer can be trained like a single-layer network by comparing the expected output to the actual output and adjusting the weights going of the lines going into the output layer accordingly.
+But how can the hidden layers (and the input layer) be trained?
+Training an ML Network (cont'd)
+The solution is to assign a certain amount of blame, delta,  to each neuron in a hidden layer (or the input layer) based on its contribution to the total error.
+The blame is used to adjust the weights.
+The blame for a node in the hidden layer (or the input layer) is calculated by using the blame values for the next layer.
+Backpropagation
+To train a multilayer network we use the backpropagation algorithm.
+First we run the network on a training example.
+Then we compare the expected output to the actual output to calculate the error.
+The blame (delta) is attributed to the non-output-layer nodes by working backward, from the output layer to the input layer.
+Finally the blame is used to adjust the weights on the connections.
+Backpropagation (cont'd)
+? wki = - c * (di -Oi) * Oi * (1 – Oi) * xk,                       for output nodes
+? wki = - c * Oi * (1 – Oi) * Sj(-deltaj * wij) * xk, for hidden and input nodes
+where deltaj = (di – Oi) * Oi * (1 – Oi) or
+  deltaj  = - Oj * (1 – Oj) * Sk(-deltak * wjk)
+where xk is the kth input to node i.
+Example - NETtalk
+NETtalk is a neural net for pronouncing English text.
+The input consists of a sliding window of seven characters. Each character may be one of 29 values (26 letters, two punctuation chars, and a space), for a total of 203 input lines.
+There are 26 output lines (21 phonemes and 5 to encode stress and syllable boundaries).
+There is a single hidden layer of 80 units.
+NETtalk (cont'd)
+Uses backpropagation to train
+Requires many passes through the training set
+Results comparable to ID3 (60% correct)
+The hidden layers serve to abstract information from the input layers
+Levenberg-Marquardt Algorithm
+The Levenberg-Marquardt algorithm was designed to approach second-order training speed without having to compute the Hessian matrix.
+When the performance function has the form of a sum of squares (as is typical in training feedforward networks), then the Hessian matrix can be approximated as:
+  H = JTJ
+and the gradient can be computed as:
+  g = JTe
+where J is the Jacobian matrix that contains first derivatives of the network errors with respect to the weights and biases, and e is a vector of network errors.
+The Jacobian matrix can be computed through a standard backpropagation technique  that is much less complex than computing the Hessian matrix.
+Levenberg-Marquardt Algorithm
+The Levenberg-Marquardt algorithm uses this approximation to the Hessian matrix in the following Newton-like update:
+  xk+1=xk-[JTJ+µI]-1JTe
+
+When the scalar µ is zero, this is just Newton's method, using the approximate Hessian matrix.
+When µ is large, this becomes gradient descent with a small step size.
+Competitive Learning
+Can be supervised or unsupervised, the latter usually for clustering
+In Winner-Take-All learning for classification, one output node is considered the “winner.” The weight vector of the winner is adjusted to bring it closer to the input vector that caused the win.
+Kohonen Rule: ? wt = c (Xt-1 – Wt-1)
+Don't need to compute f(x), weighted sum sufficient
+Kohonen Network
+Can be used to learn prototypes
+Inductive bias in terms of the number of prototypes originally specified.
+Start with random prototypes
+Essentially measures the distance between each prototype and the data point to select the winner
+Reinforces the winning node by moving it closer to the input data
+Self-organizing network
+Support Vector Machines
+Form of supervised competitive learning
+Classifies data to be in one of two categories by finding a hyperplane (determined by the support vectors) between the positive and negative instances
+Classifies elements by computing the distance from a data point to a hyperplane as an optimization problem
+Requires training  and linearly separable data, o.w., doesn't converge.
+Hebbian Coincidence Learning
+When one neuron contributes to the firing of another neuron the pathway between them is strengthened.
+That is, if the output of i is the input to j, then the weight is adjusted by a quantity proportional to
+   c * (oi * oj).
+Unsupervised Hebbian Learning
+The rule is ?W = c * f(X,W) * X
+An example of unsupervised Hebbian learning is to simulate transfer of a response from a primary or unconditioned stimulus to a conditioned stimulus.
+Example
+Example (cont'd)
+In this example, the first three inputs represented the unconditioned stimuli and the second three inputs represent the new stimuli.
+Supervised Hebbian Learning
+In supervised Hebbian learning, instead of using the output of a neuron, we use the desired output as supplied by the instructor. The rule becomes
+           ?W = c * D * X
+
+Example: Supervised Hebbian
+Recognizing associations between sets of patterns: {<X1, Y1>, <X2, Y2>, ... <Xt, Yt>}.
+The input to the network would be pattern Xi and the output should be the associated pattern Yi.
+The network consists on an input layer with n neurons (where n is the number of different input patterns, and with an output layer of size m, where m is the number of output pattens.
+The network is fully connected.
+Example (cont'd)
+In this example, the learning rule becomes:
+  ?W = c * Y * X,
+where Y * X is the outer vector product.
+We cycle through the pairs in the training set, adjusting the weights each time
+This kind of network (one the maps input vectors to output vectors using this rule) is called a linear associator.
+Associative Memory
+Used for memory retrieval, returning one pattern given another.
+There are three types of associative memory:
+Heteroassociative: Mapping from X to Y s.t. if an arbitrary vector is closer to Xi than to any other Xj, the vector Yi associated with Xi is returned.
+Autoassociative: Same as above except that Xi = Yi  for all exemplar pairs:
+Useful in retrieving a full pattern from a degraded one.
+Interpolative: If X differs from the exemplar Xi by an amount ?, then the retrieved vector Y differs from Yi by some function of ?:
+A linear associative network (one input layer, one output layer, fully connected) can be used to implement interpolative memory.
+Representation of Vectors
+Hamming vectors are vectors composed of just the numbers +1 and -1. Assume all vectors are size n.
+The Hamming distance between two vectors is just the number of components which differ.
+An orthonormal set of vectors is a set of vectors where are all unit length and each pair of distinct vectors is orthogonal (the cross-product of the vectors is 0).
+Properties of a LAN
+If the input set of vectors is orthonormal, then a linear associative network implements interpolative memory.
+The output is the weighted sum of the input vectors (we assume a trained network).
+If the input pattern matches one of the exemplars, Xi, then the output will be Yi.
+If the input pattern is Xi + ?i, then the output will be Yi + F(?i) where F is the mapping function of the network.
+Problems with LANs
+If the exemplars do not form an orthonormal set, then there may be interference between the stored patterns. This is know as crosstalk.
+The number of patterns which may be stored is limited by the dimensionality of the vector space.
+The mapping from real-life situations to orthonormal sets may not be clear.
+Attractor Network
+Instead of returning an interpolation, we may wish to return the vector associated with closest exemplar.
+We can create such a network (an attactor network) by using feedback instead of a strictly feed-foward network.
+
+Feedback Network
+Feedback networks have the following properties:
+There are feedback connections between the nodes
+This is a time delay in signal, i.e., signal propagation is not instantaneous
+The output of the network depends on the network state upon convergence of the signals.
+Usefulness depends on convergence
+Feedback Network (cont'd)
+A feedback network is initialized with an input pattern.
+The network then processes the input, passing signal between nodes, going through various states until it (hopefully) reaches equilibrium.
+The equilibrium state of the network supplies the output.
+Feedback networks can be used for heteroassociative and autoassociative memories.
+Attractors
+An attractor is a state toward which other states in the region evolve in time.
+The region associated with an attractor is called a basin.
+Bi-Directional Associative Memory
+A bi-directional associative memory (BAM) network is one with two fully connected layers, in which the links are all bi-directional.
+There can also be a feedback link connecting a node to itself.
+A BAM network may be trained, or its weights may be worked out in advance.
+It is used to map a set of vectors Xi (input layer) to a set of vectors Yi (output layer).
+BAM for autoassociative memory
+If a BAM network is used to implement an autoassocative memory then the input layer is the same as the output layer, i.e., there is just one layer with feedback links connecting nodes to themselves in addition to the links between nodes.
+This network can be used to retrieve a pattern given a noisy or incomplete pattern.
+BAM Processing
+Apply an initial vector pair (X,Y) to the processing elements. X is the pattern we wish to retrieve and Y is random.
+Propagate the information from the X layer to the Y layer and update the values at the Y layer.
+Send the information back to the X layer, updating those nodes.
+Continue until equilibrium is reached.
+Hopfield Networks
+Two goals:
+Guarantee that the network converges to a stable state, no matter what input is given.
+The stable state should be the closest one to the input state according to some distance metric
+Hopfield Network (cont'd)
+A Hopfield Network is identical in structure to an autoassociative BAM network – one layer of fully connected neurons. The activation function is
+      	          +1, if net > Ti,
+    xnew =   xold, if  net = Ti,
+                 -1, if net < Ti,
+   where net = Sj wj * xj.
+More on Hopfield Nets
+The are restrictions on the weights: wii = 0 for all i, and wij = wji for i.j.
+Usually the weights are calculated in advance, rather than having the net trained.
+The behavior of the net is characterized as an energy function, H(X) = - Si Sj wij wi wj + 2 Si Ti xi, decreases from every network transition.
+Hopfield Nets
+Thus, the network must converge, and converge to a local energy minimum, but there is no guarantee that in converges to a state near the input state.
+Can be used for optimization problems such a TSP (map the cost function of the optimization problem to the energy function of the Hopfield net).
+Recurrent Neural Network
+In a recurrent neural network (RNN), connections between units form a directed cycle.
+This creates an internal state of the network which allows it to exhibit dynamic temporal behavior.
+Unlike feedforward neural networks, RNNs can use their internal memory to process arbitrary sequences of inputs.
+RNN: Training
+Backpropagation through time (BPTT) is a gradient-based technique for training certain types of recurrent neural networks.
+BPTT
+BPTT begins by unfolding a recurrent neural network through time.
+When the network is unfolded through time, the unfolded network contains k instances of f and one instance of g.
+Training then proceeds in a manner similar to training a feed-forward neural network with backpropagation, except that each epoch must run through the observations, yt, in sequential order. The weights are averaged over the instances.
+
+
+Convolutional Neural Networks
+Convolutional neural networks are biologically inspired variants of multilayer perceptrons, designed to emulate the behaviour of a visual cortex.
+The neurons in the layers are arranged in 3 dimensions: width, height and depth. The neurons inside a layer are only connected to a small region of the layer before it, called a receptive field:
+Distinct types of layers, both locally and completely connected, are stacked to form a CNN architecture.
+Enforce a local connectivity pattern between neurons of adjacent layers.
+The architecture thus ensures that the learnt "filters" produce the strongest response to a spatially local input pattern.
+Each filter is replicated across the entire visual field.
+These replicated units share the same parameterization (weight vector and bias) and form a feature map.
+Convolution Layer
+The Convolutional layer is the core building block of a CNN.
+The layer's parameters consist of a set of learnable filters (or kernels), which have a small receptive field, but extend through the full depth of the input volume.
+During the forward pass, each filter is convolved across the width and height of the input volume, computing the dot product between the entries of the filter and the input and producing a 2-dimensional activation map of that filter.
