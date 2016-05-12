@@ -21,8 +21,8 @@ public class Test1 {
 		
 		//Fill the answers HashMap with the appropriate answers for each processed string in the input file
 		
-		URL qpath = Test1.class.getResource("questions.txt");
-		URL apath = Test1.class.getResource("answers.txt");
+		URL qpath = Test1.class.getResource("../../assets/questions.txt");
+		URL apath = Test1.class.getResource("../../assets/answers.txt");
 		
 		Scanner qreader = new Scanner(new File(qpath.getFile()));
 		Scanner areader = new Scanner(new File(apath.getFile()));
