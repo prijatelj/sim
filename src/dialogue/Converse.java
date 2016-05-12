@@ -1,4 +1,4 @@
-package sim;
+package dialogue;
 /*
  * Input:	All helper methods in converse class
  * 		Handles the user input from the command line and serves as 

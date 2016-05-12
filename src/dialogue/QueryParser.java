@@ -1,4 +1,4 @@
-package sim;
+package dialogue;
 
 public class QueryParser {
 

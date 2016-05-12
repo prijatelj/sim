@@ -1,4 +1,4 @@
-package sim.diction;
+package diction;
 /*
  * Database:
  * 		The Database object receives a directory path and creates a database

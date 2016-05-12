@@ -1,4 +1,4 @@
-package sim.diction;
+package diction;
 
 public class DbTest {
 	public static void main(String [] args){

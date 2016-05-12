@@ -1,4 +1,4 @@
-package sim;
+package dialogue;
 
 import java.io.File;
 import java.io.FileNotFoundException;

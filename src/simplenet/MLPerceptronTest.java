@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Random;
 
-import sim.QueryParser;
+import dialogue.QueryParser;
 
 public class MLPerceptronTest {
 
