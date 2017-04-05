@@ -1,4 +1,4 @@
-Sim a Persona Simulator
+Sim: Persona Simulator
 =
 Sim, in this current state, is a simple and rough expert system that when given the proper input and output files for the Neural net, will answer questions simply and statically.
 
