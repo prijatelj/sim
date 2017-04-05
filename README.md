@@ -1,6 +1,6 @@
 Sim: Persona Simulator
 =
-Sim, in this current state, is a simple and rough expert system that when given the proper input and output files for the Neural net, will answer questions simply and statically.
+Sim, in this current state, is a simple and rough expert system that when given the proper input and output files for the Neural net, will answer questions simply and statically. This was in the Spring of 2016, and so a lot has changed in terms of quality of code. I thought it was important to share this despite its blemishes.
 
 Concept
 -
