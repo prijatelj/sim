@@ -1,6 +1,8 @@
 Sim: Persona Simulator
 =
-Sim, in this current state, is a simple and rough expert system that when given the proper input and output files for the Neural net, will answer questions simply and statically. This was in the Spring of 2016, and so a lot has changed in terms of quality of code. I thought it was important to share this despite its blemishes.
+Sim, in this current state, is a simple and rough multi-layered perceptron neural network that when given the proper input and output files, will map to the corresponding text files of the notes from the Duquesne Artificial Intelligence class. This was in the Spring of 2016, so this is old code and old coding style. I thought it was important to share this despite its blemishes.
+
+The initial concept was overly ambitious for a final project of a semester class and does not much match the outcome. The AI class was what first introduced me to the power of computers and so my creative mind got carried away. This project continues as a side project, but I understand that such as system is truly state-of-the-art, even now in 2018. So, enjoy this for what it is.
 
 Concept
 -
@@ -14,7 +16,7 @@ Now, Sim is Derek's undergraduate research project and he will continue developm
 
 Sim is aiming high in the artificial intelligence world; high enough to be considered touching upon the "Holy Grail" of AI. Some functions that are expected in Sim is the ability to recall previous subjects and data from those subjects in conversation, as well as be modular in design so that parts can be turned on, off, or switched out entirely, specifically with the personality files. Obviously small talk at a higher level than modern chatter bots is expected to be achieved with Sim.
 
-The ideal Sim is obviously ambitious and probably too much for one person to accomplish alone. I (Derek) recognize this and after I have achieved some satisfactory level of success in starting the project, will release it to the public in hopes others will contribute. But for now, I will continue this project as means of study. We'll see where this goes. In the meantime this show cases the initial project which is no where near the ideal.
+The ideal Sim is obviously ambitious and probably too much for one person to accomplish alone. I (Derek) recognize this and after I have achieved some satisfactory level of success in starting the project, will release it to the public in hopes others will contribute. But for now, I will continue this project as means of study. We'll see where this goes. In the meantime this repository show cases the initial project which is no where near the ideal. (My senior project will be released when completed, however it will still not be near the initial concept.)
 
 Goals
 -
